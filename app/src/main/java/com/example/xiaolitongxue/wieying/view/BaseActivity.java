@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     abstract void initView();
-     abstract void initData();
+    abstract void initData();
     abstract int getLayout();
      //沉浸式
     protected void setTranslucentStatus(boolean on) {
