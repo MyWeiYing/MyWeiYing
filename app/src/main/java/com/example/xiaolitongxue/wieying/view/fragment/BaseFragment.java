@@ -29,8 +29,14 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         p = newPresenter();
         p.attachView(this);
         findViewByIdView(view);
-        initData(savedInstanceState);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        initData(savedInstanceState);
     }
 
     abstract View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container);

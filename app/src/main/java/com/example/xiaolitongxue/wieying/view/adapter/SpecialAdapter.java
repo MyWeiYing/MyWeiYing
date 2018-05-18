@@ -23,17 +23,16 @@ import java.util.List;
  */
 public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder> {
 
-    private List<SpeciallBean.RetBean> list;
+    private List<SpeciallBean.RetBean.ListBean> list;
     private Context context;
 
-    public SpecialAdapter(List<SpeciallBean.RetBean> list, Context context) {
+    public SpecialAdapter(List<SpeciallBean.RetBean.ListBean> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view = View.inflate(context, R.layout.fragment_special_item, null);
         MyHolder myHolder = new MyHolder(view);
         return myHolder;
@@ -41,8 +40,9 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-        String[] shareURL = list.get(position).getList().get(position).getShareURL().split("\\|");
-        Glide.with(context).load(shareURL[0]).into(holder.img);
+
+        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.img);
+
 //        点击图片进行跳转
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +65,8 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
         public MyHolder(View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.img);
+// 设置imageview透明度
+//           img.setAlpha(150);
         }
     }
 }

@@ -1,10 +1,7 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
-<<<<<<< HEAD
-=======
 import android.os.Bundle;
->>>>>>> 4c2cf389f1239cc021ea6390cc6dd973db76430a
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -36,14 +33,10 @@ public class MainActivity extends BaseActivity {
         bottomTabbar.init(getSupportFragmentManager())
                 .setImgSize(70, 70)
                 .setFontSize(14)
-<<<<<<< HEAD
-
                 .setTabPadding(40,0,10)
                 .setChangeColor(Color.RED,Color.DKGRAY)
-=======
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
->>>>>>> 4c2cf389f1239cc021ea6390cc6dd973db76430a
                 .setTabBarBackgroundResource(R.drawable.bottom_bg)
                 .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
                 .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
@@ -56,11 +49,7 @@ public class MainActivity extends BaseActivity {
                         mainMyTileBar.setTitleBarTitle(name);
                     }
                 });
-<<<<<<< HEAD
-//        Toast.makeText(this,bottomTabbar.getWidth()+"",Toast.LENGTH_SHORT).show();
-=======
-        Toast.makeText(this, bottomTabbar.getWidth() + "", Toast.LENGTH_SHORT).show();
->>>>>>> 4c2cf389f1239cc021ea6390cc6dd973db76430a
+//        Toast.makeText(this, bottomTabbar.getWidth() + "", Toast.LENGTH_SHORT).show();
 
 
     }
@@ -69,6 +58,4 @@ public class MainActivity extends BaseActivity {
     int getLayout() {
         return R.layout.activity_main;
     }
-
-
 }

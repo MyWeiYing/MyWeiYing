@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!--添加状态栏（第一种方式）-->
     <!--<item name="android:fitsSystemWindows">true</item>-->
     <style name="container_style">
         <item name="android:layout_width">match_parent</item>

@@ -22,8 +22,6 @@ import rx.schedulers.Schedulers;
 public class SpecialPresenter extends BasePresenter<SpecialIView> {
     private static final String TAG = "Special";
     private static final RetorfitUtils retorfitUtils;
-
-
     static {
         retorfitUtils = RetorfitUtils.getRetorfitUtils();
     }

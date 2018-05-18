@@ -9,10 +9,10 @@
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
 
     <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
-        android:background="@color/colorPrimary"
         android:id="@+id/main_myTileBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp">
+        android:layout_height="67.5dp"
+        android:background="@color/colorPrimary">
 
     </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
 
@@ -20,7 +20,6 @@
         android:id="@+id/bottom_tabbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         ></com.hjm.bottomtabbar.BottomTabBar>
 
 </LinearLayout>
