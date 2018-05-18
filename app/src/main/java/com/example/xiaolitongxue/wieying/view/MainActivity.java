@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity {
 
         Toast.makeText(this, bottomTabbar.getWidth() + "", Toast.LENGTH_SHORT).show();
 
-
+        Toast.makeText(this, "皮一波", Toast.LENGTH_SHORT).show();
 
     }
 
