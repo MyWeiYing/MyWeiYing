@@ -1,8 +1,6 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.view.Window;
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -13,7 +11,6 @@ import com.example.xiaolitongxue.wieying.view.fragment.SpecialFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
@@ -32,7 +29,7 @@ public class MainActivity extends BaseActivity {
                 .setImgSize(70,70)
                 .setFontSize(14)
 
-                .setTabPadding(40,0,0)
+                .setTabPadding(40,0,10)
                 .setChangeColor(Color.RED,Color.DKGRAY)
                 .setTabBarBackgroundResource(R.drawable.bottom_bg)
                 .addTabItem("精选",R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
@@ -48,7 +45,7 @@ public class MainActivity extends BaseActivity {
 
                     }
                 });
-        Toast.makeText(this,bottomTabbar.getWidth()+"",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,bottomTabbar.getWidth()+"",Toast.LENGTH_SHORT).show();
 
 
     }

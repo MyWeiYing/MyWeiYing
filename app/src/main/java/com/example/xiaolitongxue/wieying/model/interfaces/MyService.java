@@ -1,8 +1,13 @@
 package com.example.xiaolitongxue.wieying.model.interfaces;
 
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
+import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
 
 
+import java.util.Map;
+
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -11,8 +16,12 @@ import rx.Observable;
  */
 
 public interface MyService {
+    //    精选
     @POST("front/homePageApi/homePage.do")
     Observable<ChoicenessBean> getChoicenessData();
 
-
+    //    专题
+    @FormUrlEncoded
+    @POST("/front/columns/getVideoList.do")
+    Observable<SpeciallBean> getSpeciallData(@FieldMap Map<String,String> map);
 }
