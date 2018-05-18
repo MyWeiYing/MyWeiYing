@@ -17,7 +17,7 @@ import butterknife.Unbinder;
 /**
  * Created by xiaolitongxue on 2018/5/16.
  */
-//fffffffffffff
+//bbb
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseIView{
     private P p;
     Unbinder unbinder;
