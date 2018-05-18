@@ -2,14 +2,10 @@ package com.example.xiaolitongxue.wieying.view;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.example.xiaolitongxue.wieying.R;
 
 import butterknife.ButterKnife;
 
@@ -32,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     abstract void initView();
-     abstract void initData();
+    abstract void initData();
     abstract int getLayout();
      //沉浸式
     protected void setTranslucentStatus(boolean on) {

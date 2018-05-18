@@ -2,17 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     style="@style/container_style"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
-   <com.hjm.bottomtabbar.BottomTabBar
-       android:id="@+id/bottom_tabbar"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
 
-       >
-   </com.hjm.bottomtabbar.BottomTabBar>
+    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
+        android:background="@color/colorPrimary"
+        android:id="@+id/main_myTileBar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+    </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
+
+    <com.hjm.bottomtabbar.BottomTabBar
+        android:id="@+id/bottom_tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        ></com.hjm.bottomtabbar.BottomTabBar>
 
 </LinearLayout>
