@@ -21,26 +21,26 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
     @BindView(R.id.main_myTileBar)
     MyTitleBar mainMyTileBar;
 
-    @Override
-    void initView() {
+   /* @Override
+    protected void initView() {
         //初始化控件
-    }
+    }*/
 
     @Override
-    void initData() {
+    protected void initData() {
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())
                 .setImgSize(70, 70)
                 .setFontSize(14)
-                .setTabPadding(40,0,10)
-                .setChangeColor(Color.RED,Color.DKGRAY)
+                .setTabPadding(40, 0, 10)
+                .setChangeColor(Color.RED, Color.DKGRAY)
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
 
 
-                .setTabPadding(40,0,10)
-                .setChangeColor(Color.RED,Color.DKGRAY)
+                .setTabPadding(40, 0, 10)
+                .setChangeColor(Color.RED, Color.DKGRAY)
 
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
     }
 
     @Override
-    int getLayout() {
+    protected int getLayout() {
         return R.layout.activity_main;
     }
 

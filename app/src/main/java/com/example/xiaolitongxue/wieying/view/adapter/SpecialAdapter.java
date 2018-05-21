@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.xiaolitongxue.wieying.R;
@@ -39,19 +40,20 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
+    public void onBindViewHolder(MyHolder holder, final int position) {
 
-        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.img);
-
+        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_img);
+        holder.special_text.setText(list.get(position).getTitle());
 //        点击图片进行跳转
-        holder.img.setOnClickListener(new View.OnClickListener() {
+        holder.special_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(context, SpecialClassifyActivity.class);
+                intent.putExtra("loadURL",list.get(position).getLoadURL());
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -60,13 +62,15 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
-        private final ImageView img;
+        private final ImageView special_img;
+        private final TextView special_text;
 
         public MyHolder(View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img);
-// 设置imageview透明度
-//           img.setAlpha(150);
+            special_img = itemView.findViewById(R.id.special_img);
+            special_text = itemView.findViewById(R.id.special_text);
+            // 设置imageview透明度
+            // img.setAlpha(150);
         }
     }
 }

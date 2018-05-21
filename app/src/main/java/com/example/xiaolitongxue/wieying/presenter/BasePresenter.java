@@ -1,5 +1,7 @@
 package com.example.xiaolitongxue.wieying.presenter;
 
+import android.util.Log;
+
 import com.example.xiaolitongxue.wieying.view.interfaces.BaseIView;
 
 /**
@@ -16,6 +18,9 @@ public class BasePresenter<V extends BaseIView> {
     }
 
     public V getView(){
+        Log.e("BasePresenter", ""+v);
+
+
         return v;
     }
 
