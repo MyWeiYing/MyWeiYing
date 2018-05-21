@@ -1,6 +1,7 @@
 package com.example.xiaolitongxue.wieying.view.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +37,14 @@ public class SpecialClassifyActivity extends BaseActivity implements SpecialICla
     @Override
     protected void initData() {
         Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        specialActivityMyTileBar.setTitleBarTitle(title);
+//        标题栏是否显示
+        specialActivityMyTileBar.setTitleBarReturn(true);
+//        specialActivityMyTileBar.setReturnClickListener();
+//        给定颜色 为红色
+        specialActivityMyTileBar.setBackgroundColor(Color.RED);
+        Toast.makeText(this, "" + title, Toast.LENGTH_SHORT).show();
         final String loadURL = intent.getStringExtra("loadURL");
 
         final OkhttpUtils okhttpUtils = new OkhttpUtils();
@@ -71,15 +80,18 @@ public class SpecialClassifyActivity extends BaseActivity implements SpecialICla
         }).start();
 
     }
+
     @Override
     protected int getLayout() {
         return R.layout.activity_special_classify;
     }
+
     //成功
     @Override
     public void onSuccess(SpeciallClassifyBean speciallClassifyBean) {
 
     }
+
     //失败
     @Override
     public void onError(String s) {

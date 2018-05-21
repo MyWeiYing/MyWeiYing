@@ -29,10 +29,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseIVie
 //        initView();
         initData();
     }
-
-
-
-
     //    protected abstract void initView();
     protected abstract void initData();
     protected abstract int getLayout();

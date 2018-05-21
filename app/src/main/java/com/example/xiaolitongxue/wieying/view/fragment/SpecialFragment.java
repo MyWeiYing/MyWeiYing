@@ -67,7 +67,6 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
         special_fragment_recycler.setLayoutManager(new GridLayoutManager(getActivity(),2));
         specialAdapter = new SpecialAdapter(speciallBean.getRet().getList(),getActivity());
         special_fragment_recycler.setAdapter(specialAdapter);
-        Toast.makeText(getContext(), speciallBean.getMsg(), Toast.LENGTH_SHORT).show();
 
     }
     //重写失败
