@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
+import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.fragment.ChoicenessFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.FindFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.MyFragment;
@@ -13,7 +14,7 @@ import com.hjm.bottomtabbar.BottomTabBar;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener {
 
     @BindView(R.id.bottom_tabbar)
     BottomTabBar bottomTabbar;
@@ -54,8 +55,10 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onTabChange(int position, String name) {
                         mainMyTileBar.setTitleBarTitle(name);
+
                     }
                 });
+//            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
 
         Toast.makeText(this, bottomTabbar.getWidth() + "", Toast.LENGTH_SHORT).show();
@@ -67,5 +70,10 @@ public class MainActivity extends BaseActivity {
     @Override
     int getLayout() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    public void scrollOritention(int l, int t, int oldl, int oldt) {
+
     }
 }
