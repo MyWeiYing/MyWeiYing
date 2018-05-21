@@ -1,5 +1,7 @@
 package com.example.xiaolitongxue.wieying.presenter;
 
+import android.content.Context;
+
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.http.RetorfitUtils;
 import com.example.xiaolitongxue.wieying.model.interfaces.MyService;
