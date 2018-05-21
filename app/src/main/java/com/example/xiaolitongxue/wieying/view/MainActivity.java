@@ -1,14 +1,18 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
+<<<<<<< HEAD
 
 import android.os.Bundle;
 
 import android.widget.RelativeLayout;
+=======
+>>>>>>> master
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
+import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.fragment.ChoicenessFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.FindFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.MyFragment;
@@ -17,29 +21,33 @@ import com.hjm.bottomtabbar.BottomTabBar;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener {
 
     @BindView(R.id.bottom_tabbar)
     BottomTabBar bottomTabbar;
     @BindView(R.id.main_myTileBar)
     MyTitleBar mainMyTileBar;
 
-    @Override
-    void initView() {
+   /* @Override
+    protected void initView() {
         //初始化控件
-    }
+    }*/
 
     @Override
-    void initData() {
+    protected void initData() {
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())
                 .setImgSize(70, 70)
                 .setFontSize(14)
+                .setTabPadding(40, 0, 10)
+                .setChangeColor(Color.RED, Color.DKGRAY)
+                .setTabPadding(40, 0, 0)
+                .setChangeColor(Color.RED, Color.DKGRAY)
 
 
-                .setTabPadding(40,0,10)
-                .setChangeColor(Color.RED,Color.DKGRAY)
+                .setTabPadding(40, 0, 10)
+                .setChangeColor(Color.RED, Color.DKGRAY)
 
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
@@ -59,21 +67,20 @@ public class MainActivity extends BaseActivity {
                         }
                         bottomTabbar.setLayoutParams(params);
                         mainMyTileBar.setTitleBarTitle(name);
+
                     }
                 });
-
-//        Toast.makeText(this,bottomTabbar.getWidth()+"",Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(this, bottomTabbar.getWidth() + "", Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(this, "皮一波", Toast.LENGTH_SHORT).show();
+//            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
     }
 
     @Override
-    int getLayout() {
+    protected int getLayout() {
         return R.layout.activity_main;
     }
 
-
+    @Override
+    public void scrollOritention(int l, int t, int oldl, int oldt) {
+        //这是主分支
+    }
 }
