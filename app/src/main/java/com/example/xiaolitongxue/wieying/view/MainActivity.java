@@ -4,6 +4,7 @@ import android.graphics.Color;
 
 import android.os.Bundle;
 
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -52,6 +53,11 @@ public class MainActivity extends BaseActivity {
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
                     public void onTabChange(int position, String name) {
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
+                        if (position != 0){
+                            params.addRule(RelativeLayout.BELOW,mainMyTileBar.getId());
+                        }
+                        bottomTabbar.setLayoutParams(params);
                         mainMyTileBar.setTitleBarTitle(name);
                     }
                 });
