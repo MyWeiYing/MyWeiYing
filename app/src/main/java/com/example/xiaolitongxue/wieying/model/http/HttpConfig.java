@@ -10,4 +10,7 @@ public class HttpConfig {
 
 //    专题
 //    http://api.svipmovie.com/front/columns/getVideoList.do?catalogId=402834815584e463015584e539330016&pnum=7
+
+    //    专题跳转后
+//    http://api.svipmovie.com/front/videoDetailApi/videoDetail.do?mediaId=8affeb9df9ea4c609905e5c84f2cc6a6
 }

@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class SpecialFragment extends BaseFragment<SpecialPresenter> implements SpecialIView {
 
-    private SpecialPresenter presenter;
+//    private SpecialPresenter presenter;
     private SpecialAdapter specialAdapter;
     private RecyclerView special_fragment_recycler;
 
@@ -43,12 +43,14 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
         Map<String, String> map = new HashMap<>();
         map.put("catalogId", "402834815584e463015584e539330016");
         map.put("pnum", "7");
-        presenter.loadDataFragmentServer(map);
+//        presenter.loadDataFragmentServer(map);
+        p.loadDataFragmentServer(map);
     }
 
     @Override
     void findViewByIdView(View view) {
-        presenter = getPresenter();
+//        presenter = getPresenter();
+        p = getPresenter();
         special_fragment_recycler = view.findViewById(R.id.special_fragment_recycler);
 
     }
@@ -57,7 +59,6 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
     SpecialPresenter newPresenter() {
         return new SpecialPresenter();
     }
-
 
     //重写成功
     @Override
