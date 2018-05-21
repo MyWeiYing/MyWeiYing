@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallClassifyBean;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class SpecialClassifyAdapter extends RecyclerView.Adapter<SpecialClassify
     @Override
     public void onBindViewHolder(MyHolder holder, final int position) {
 
-        Glide.with(context).load(list.get(0).getChildList().get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_jump_img);
+//        Glide.with(context).load(list.get(0).getChildList().get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_jump_img);
         holder.special_jump_text.setText(list.get(0).getChildList().get(position).getTitle());
 //        点击图片进行跳转
 
@@ -52,7 +53,7 @@ public class SpecialClassifyAdapter extends RecyclerView.Adapter<SpecialClassify
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
-        private final ImageView special_jump_img;
+        private final SimpleDraweeView special_jump_img;
         private final TextView special_jump_text;
 
         public MyHolder(View itemView) {

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
 import com.example.xiaolitongxue.wieying.view.activity.SpecialClassifyActivity;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -42,7 +43,9 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
     @Override
     public void onBindViewHolder(MyHolder holder, final int position) {
 
-        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_img);
+//        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_img);
+        String image_url = list.get(position).getPic().split("\\|")[0];
+        holder.special_img.setImageURI(image_url);
         holder.special_text.setText(list.get(position).getTitle());
 //        点击图片进行跳转
         holder.special_img.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
-        private final ImageView special_img;
+        private final SimpleDraweeView special_img;
         private final TextView special_text;
 
         public MyHolder(View itemView) {

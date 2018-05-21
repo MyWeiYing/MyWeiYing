@@ -5,6 +5,8 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.view.WindowManager;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * author：石头 on 2018/5/19 16:33
  * E-mail：small_shitou@163.com
@@ -20,6 +22,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         resetDensity();//注意不要漏掉
+        Fresco.initialize(this);
     }
 
     @Override
