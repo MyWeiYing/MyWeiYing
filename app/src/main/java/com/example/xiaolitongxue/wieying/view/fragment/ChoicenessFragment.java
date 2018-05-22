@@ -100,6 +100,10 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
                    Log.d("上滑了",""+t);
                }
 
+               if (t > 0 && t < 300){
+
+               }
+
                if (t <= 0) {
                    titlebar.setAlpha(0);
                } else if (t > 0 && t <= 100) {
