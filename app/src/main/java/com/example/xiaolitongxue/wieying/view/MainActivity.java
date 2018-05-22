@@ -2,12 +2,14 @@ package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
 
+
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -94,20 +96,10 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
                     public void onTabChange(int position, String name) {
-                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
-                        if (position != 0){
-                            mainMyTileBar.setAlpha(1);
-                            params.addRule(RelativeLayout.BELOW,mainMyTileBar.getId());
-                        }else {
-                            mainMyTileBar.setAlpha(alpha);
-                        }
-                        bottomTabbar.setLayoutParams(params);
                         mainMyTileBar.setTitleBarTitle(name);
 
                     }
                 });
-        Toast.makeText(this, "dsfsdafadsf", Toast.LENGTH_SHORT).show();
-        //lyh
 //            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
     }

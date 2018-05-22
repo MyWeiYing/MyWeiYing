@@ -1,5 +1,6 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,12 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
 import com.example.xiaolitongxue.wieying.view.MainActivity;
+import com.example.xiaolitongxue.wieying.view.activity.JinxuanxiangqingActivity;
 import com.example.xiaolitongxue.wieying.view.adapter.JIngxuanAdapter;
 
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
@@ -36,6 +39,7 @@ import java.util.List;
  */
 
 public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implements ChoicenessIView {
+    private View layout;
     private View view;
     private ChoicenessPresenter presenter;
     private static final String TAG = "ChoicenessFragment";
@@ -50,7 +54,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     private String img4 = "http://phonemovie.ks3-cn-beijing.ksyun.com/image/2017/06/20/1497939658612079464.jpg";
     private String img5 = "http://phonemovie.ks3-cn-beijing.ksyun.com/image/2017/06/20/1497940129455060640.jpg";
     private ObserveScrollView mScrollview;
-    private MyTitleBar titlebar;
+    private JIngxuanAdapter jIngxuanAdapter;
 
     //创建并返回数据
     @Override
@@ -67,7 +71,6 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         mlistview = view.findViewById(R.id.mlistview);
         relatadrawcolor = view.findViewById(R.id.Relatadrawcolor);
         mScrollview = view.findViewById(R.id.mScrollview);
-        titlebar = view.findViewById(R.id.choiceness_titlebar);
         presenter = getPresenter();
         //findViewById的方法可以使用黄油刀
 
@@ -85,40 +88,21 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         listimgs.add(img5);
         mbanner.setImages(listimgs);
         mbanner.start();
-        titlebar.setBackgroundColor(Color.RED);
-        titlebar.setAlpha(0);
+
 // ;
         presenter.loadDataFromServer();
-        titlebar.bringToFront();
 //        上滑监听事件
        mScrollview.setScrollListener(new ObserveScrollView.ScrollListener() {
+
            @Override
            public void scrollOritention(int l, int t, int oldl, int oldt) {
-
-               Log.d("loaction-y","t"+t );
+               Log.d("loaction-y",""+t);
                if (t>0){
                    Log.d("上滑了",""+t);
                }
 
-               if (t > 0 && t < 300){
-
-               }
-
-               if (t <= 0) {
-                   titlebar.setAlpha(0);
-               } else if (t > 0 && t <= 100) {
-                   titlebar.setAlpha(0.3f);
-               }else if (t > 100 && t <= 200){
-                   titlebar.setAlpha(0.5f);
-               }else if (t > 200 && t <= 300){
-                    titlebar.setAlpha(0.8f);
-               }else if (t > 300){
-                   titlebar.setAlpha(1);
-               }
-
            }
        });
-
 
 
     }
@@ -135,7 +119,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         //获取数据成功
         Log.d(TAG, "onSuccess: =======================" + choicenessBean.getMsg());
 //        this.choicenessBean = choicenessBean;
-        JIngxuanAdapter jIngxuanAdapter = new JIngxuanAdapter(choicenessBean.getRet().getList().get(0).getChildList(),getActivity());
+        jIngxuanAdapter = new JIngxuanAdapter(choicenessBean.getRet().getList().get(0).getChildList(),getActivity());
         mlistview.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
         mlistview.setAdapter(jIngxuanAdapter);
         mlistview.setNestedScrollingEnabled(false);
@@ -147,6 +131,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         //获取数据失败
         Log.d(TAG, "onError: ---------" + s);
     }
+
 
 
 

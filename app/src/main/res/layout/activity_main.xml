@@ -124,6 +124,7 @@
 
     </com.hjm.bottomtabbar.BottomTabBar>
 
+
     <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
         android:id="@+id/main_myTileBar"
         android:layout_width="match_parent"
@@ -134,3 +135,4 @@
 </RelativeLayout>
 
 </com.example.xiaolitongxue.wieying.view.custom.ResideLayout>
+
