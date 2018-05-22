@@ -24,9 +24,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_gray_square_bg"
-        android:padding="5dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+        android:padding="5dp" />
 
     <!--<RelativeLayout-->
     <!--android:layout_width="316pt"-->
