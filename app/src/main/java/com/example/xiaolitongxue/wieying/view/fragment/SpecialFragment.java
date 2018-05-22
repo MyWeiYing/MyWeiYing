@@ -23,7 +23,7 @@ import java.util.Map;
 
 /**
  * Created by xiaolitongxue on 2018/5/16.
- * 专题
+ * 专题  Fragment
  */
 
 public class SpecialFragment extends BaseFragment<SpecialPresenter> implements SpecialIView {
