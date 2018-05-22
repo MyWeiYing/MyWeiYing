@@ -1,13 +1,11 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
-<<<<<<< HEAD
 
 import android.os.Bundle;
 
 import android.widget.RelativeLayout;
-=======
->>>>>>> master
+
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -35,6 +33,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     protected void initData() {
+        mainMyTileBar.setAlpha(0);
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())
