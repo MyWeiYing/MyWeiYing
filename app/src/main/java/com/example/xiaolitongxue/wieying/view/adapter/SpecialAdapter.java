@@ -51,7 +51,6 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
         holder.special_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(context, SpecialClassifyActivity.class);
                 intent.putExtra("title",list.get(position).getTitle());
                 intent.putExtra("loadURL",list.get(position).getLoadURL());
