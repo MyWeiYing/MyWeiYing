@@ -91,7 +91,8 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
        mScrollview.setScrollListener(new ObserveScrollView.ScrollListener() {
            @Override
            public void scrollOritention(int l, int t, int oldl, int oldt) {
-               Log.d("loaction-y",""+t);
+
+               Log.d("loaction-y","t"+t);
                if (t>0){
                    Log.d("上滑了",""+t);
                }
