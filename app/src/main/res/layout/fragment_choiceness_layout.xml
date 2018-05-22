@@ -3,6 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
+        android:id="@+id/choiceness_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="67.5dp"></com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
+
     <com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView
         android:id="@+id/mScrollview"
         android:layout_width="match_parent"
