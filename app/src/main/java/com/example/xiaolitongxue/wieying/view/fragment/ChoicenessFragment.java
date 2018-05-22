@@ -93,6 +93,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         presenter.loadDataFromServer();
 //        上滑监听事件
        mScrollview.setScrollListener(new ObserveScrollView.ScrollListener() {
+           
            @Override
            public void scrollOritention(int l, int t, int oldl, int oldt) {
                Log.d("loaction-y",""+t);
