@@ -86,6 +86,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         mbanner.setImages(listimgs);
         mbanner.start();
         titlebar.setBackgroundColor(Color.RED);
+        titlebar.setAlpha(0);
 // ;
         presenter.loadDataFromServer();
         titlebar.bringToFront();
@@ -101,9 +102,13 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
 
                if (t <= 0) {
                    titlebar.setAlpha(0);
-               } else if (t > 0 && t <= 200) {
+               } else if (t > 0 && t <= 100) {
+                   titlebar.setAlpha(0.3f);
+               }else if (t > 100 && t <= 200){
                    titlebar.setAlpha(0.5f);
-               } else {
+               }else if (t > 200 && t <= 300){
+                    titlebar.setAlpha(0.8f);
+               }else if (t > 300){
                    titlebar.setAlpha(1);
                }
 
