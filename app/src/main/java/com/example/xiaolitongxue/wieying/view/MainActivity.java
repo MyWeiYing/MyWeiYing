@@ -74,6 +74,8 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
                     }
                 });
+        Toast.makeText(this, "dsfsdafadsf", Toast.LENGTH_SHORT).show();
+        //lyh
 //            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
     }
