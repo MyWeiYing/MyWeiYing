@@ -1,27 +1,37 @@
 package com.example.xiaolitongxue.wieying.view.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
-import com.dou361.ijkplayer.widget.PlayStateParams;
-import com.dou361.ijkplayer.widget.PlayerView;
+import com.bumptech.glide.Glide;
+import com.dl7.player.media.IjkPlayerView;
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.view.BaseActivity;
+import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
+
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class JinxuanxiangqingActivity extends BaseActivity {
 
 
+    @BindView(R.id.player_view)
+    IjkPlayerView playerView;
+    @BindView(R.id.main_myTileBar)
+    MyTitleBar mainMyTileBar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jinxuanxiangqing);
+        ButterKnife.bind(this);
 //
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -35,22 +45,68 @@ public class JinxuanxiangqingActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        View inflate = getLayoutInflater().from(this).inflate(R.layout.simple_player_view_player,null);
-        setContentView(inflate);
+
         Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        mainMyTileBar.setTitleBarTitle(title);
         String videourl = intent.getStringExtra("videourl");
-        new PlayerView(this)
-                .setTitle("")
-                .setScaleType(PlayStateParams.fitparent)
-                .hideMenu(true)
-                .forbidTouch(false)
-                .setPlaySource(videourl)
-                .startPlay();
+        String pic = intent.getStringExtra("pic");
+        Glide.with(this).load(pic).into(playerView.mPlayerThumb);
+        Toast.makeText(this,videourl+"",Toast.LENGTH_LONG).show();
+        playerView = findViewById(R.id.player_view);
+        playerView.init()
+                .setVideoPath(videourl)
+                .setMediaQuality(IjkPlayerView.MEDIA_QUALITY_HIGH)
+                .enableDanmaku()
+                .start();
+
+
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        playerView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        playerView.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        playerView.onDestroy();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        playerView.configurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (playerView.handleVolumeKey(keyCode)) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (playerView.onBackPressed()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+
+    @Override
     protected int getLayout() {
-        return R.layout.content_jinxuanxiangqing;
+        return R.layout.activity_jinxuanxiangqing;
     }
 
 }

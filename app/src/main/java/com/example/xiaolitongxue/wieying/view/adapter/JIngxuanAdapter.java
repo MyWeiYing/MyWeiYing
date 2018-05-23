@@ -49,11 +49,11 @@ public class JIngxuanAdapter extends RecyclerView.Adapter<JIngxuanAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,""+list.get(position).getShareURL(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(context,""+list.get(position).getShareURL(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context,JinxuanxiangqingActivity.class);
-
+                intent.putExtra("title",list.get(position).getTitle());
                 intent.putExtra("videourl",list.get(position).getShareURL());
-
+                intent.putExtra("pic",list.get(position).getPic());
                 context.startActivity(intent);
             }
         });
