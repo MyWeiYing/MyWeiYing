@@ -16,6 +16,10 @@ import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
 import com.example.xiaolitongxue.wieying.presenter.SpecialPresenter;
 import com.example.xiaolitongxue.wieying.view.adapter.SpecialAdapter;
 import com.example.xiaolitongxue.wieying.view.interfaces.SpecialIView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,10 +35,14 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
 //    private SpecialPresenter presenter;
     private SpecialAdapter specialAdapter;
     private RecyclerView special_fragment_recycler;
+    private SmartRefreshLayout smartref;
 
     @Override
     View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_special_layout, container, false);
+
+
+
         return view;
     }
 
@@ -44,6 +52,24 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
         map.put("catalogId", "402834815584e463015584e539330016");
         map.put("pnum", "7");
 //        presenter.loadDataFragmentServer(map);
+
+        //加载  时长
+        smartref.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                smartref.finishLoadmore(1500);
+            }
+        });
+        //刷新 时长
+        smartref.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                smartref.finishRefresh(1500);
+            }
+        });
+
+
+
         p.loadDataFragmentServer(map);
     }
 
@@ -52,6 +78,8 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
 //        presenter = getPresenter();
         p = getPresenter();
         special_fragment_recycler = view.findViewById(R.id.special_fragment_recycler);
+        smartref = view.findViewById(R.id.smart);
+
 
     }
 

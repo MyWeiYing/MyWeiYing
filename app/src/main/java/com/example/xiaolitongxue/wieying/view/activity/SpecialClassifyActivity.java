@@ -41,7 +41,13 @@ public class SpecialClassifyActivity extends BaseActivity implements SpecialICla
         specialActivityMyTileBar.setTitleBarTitle(title);
 //        标题栏是否显示
         specialActivityMyTileBar.setTitleBarReturn(true);
-//        specialActivityMyTileBar.setReturnClickListener();
+//        返回的点击事件
+        specialActivityMyTileBar.setReturnClickListener(new MyTitleBar.ReturnClickListener() {
+            @Override
+            public void returnClickListener() {
+                finish();
+            }
+        });
 //        给定颜色 为红色
         specialActivityMyTileBar.setBackgroundColor(Color.RED);
         Toast.makeText(this, "" + title, Toast.LENGTH_SHORT).show();

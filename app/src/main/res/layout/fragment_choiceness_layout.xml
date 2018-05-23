@@ -22,15 +22,15 @@
 
             <com.youth.banner.Banner
                 android:id="@+id/mbanner"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_width="720pt"
+                android:layout_height="400pt" />
 
             <RelativeLayout
                 android:id="@+id/Relatadrawcolor"
-                android:layout_width="280dp"
-                android:layout_height="40dp"
+                android:layout_width="500pt"
+                android:layout_height="76pt"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="70pt"
                 android:alpha="50"
                 android:background="@drawable/shape_gray_square_sousuo">
 
@@ -39,7 +39,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="30pt"
                     android:src="@drawable/search" />
 
                 <EditText
@@ -51,23 +51,24 @@
                     android:gravity="center_vertical"
                     android:hint="一念天堂"
                     android:textColorHint="#ffffff"
-                    android:textSize="12dp" />
+                    android:textSize="28px" />
 
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="88pt"
                 android:layout_below="@id/mbanner"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="20pt"
                 android:gravity="center"
                 android:text="精彩推荐"
-                android:textColor="#cecece" />
+                android:textSize="20sp"
+                android:textColor="#fff" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mlistview"
-                android:layout_width="wrap_content"
+                android:layout_width="668pt"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/text1"
                 android:layout_centerHorizontal="true" />

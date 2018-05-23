@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-        <ImageView
-            android:background="@drawable/shape_gray_square_imglog"
-            android:id="@+id/imglog"
-            android:layout_width="320dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_below="@id/cchoicenesstextview"
-            android:id="@+id/cchoicenesstextview"
-            android:layout_width="320dp"
-            android:layout_height="30dp"
-            android:textColor="#ffffff"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="xxxxx"
-            />
+    <ImageView
+        android:id="@+id/imglog"
+        android:layout_width="668pt"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_gray_square_imglog" />
+
+    <TextView
+        android:id="@+id/cchoicenesstextview"
+        android:layout_width="668pt"
+        android:layout_height="55pt"
+        android:textSize="16sp"
+        android:layout_below="@id/cchoicenesstextview"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="xxxxx"
+        android:textColor="#ffffff" />
 
 </LinearLayout>
