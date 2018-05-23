@@ -1,6 +1,7 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     protected void initData() {
+        mainMyTileBar.setAlpha(0);
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())
@@ -37,14 +39,10 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                 .setChangeColor(Color.RED, Color.DKGRAY)
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
-
-
                 .setTabPadding(40, 0, 10)
                 .setChangeColor(Color.RED, Color.DKGRAY)
-
                 .setTabPadding(40, 0, 0)
                 .setChangeColor(Color.RED, Color.DKGRAY)
-
                 .setTabBarBackgroundResource(R.drawable.bottom_bg)
                 .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
                 .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
@@ -54,6 +52,14 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
                     public void onTabChange(int position, String name) {
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                        if (position != 0) {
+                            mainMyTileBar.setAlpha(1);
+                            params.addRule(RelativeLayout.BELOW, mainMyTileBar.getId());
+                        } else {
+                            mainMyTileBar.setAlpha(0);
+                        }
+                        bottomTabbar.setLayoutParams(params);
                         mainMyTileBar.setTitleBarTitle(name);
 
                     }
