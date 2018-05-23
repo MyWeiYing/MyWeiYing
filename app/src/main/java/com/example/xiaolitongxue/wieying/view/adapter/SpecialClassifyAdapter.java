@@ -62,7 +62,7 @@ public class SpecialClassifyAdapter extends RecyclerView.Adapter<SpecialClassify
 
     @Override
     public int getItemCount() {
-        return list.get(0).getChildList().size();
+        return list.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
