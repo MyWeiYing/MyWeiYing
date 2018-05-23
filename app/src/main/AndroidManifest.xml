@@ -3,8 +3,9 @@
     package="com.example.xiaolitongxue.wieying">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -20,7 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.SpecialClassifyActivity"></activity>
+        <activity android:name=".view.activity.SpecialClassifyActivity" />
+        <activity
+            android:name=".view.activity.JinxuanxiangqingActivity"
+            android:label="@string/title_activity_jinxuanxiangqing"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
