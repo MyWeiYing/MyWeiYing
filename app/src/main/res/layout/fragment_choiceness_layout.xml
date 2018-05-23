@@ -3,21 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
     <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
         android:id="@+id/choiceness_mytitlebar"
         android:layout_width="match_parent"
         android:layout_height="67.5dp"></com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
 
-=======
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
+
     <com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView
         android:id="@+id/mScrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
 
-<<<<<<< HEAD
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -68,7 +65,7 @@
                 android:gravity="center"
                 android:text="精彩推荐"
                 android:textColor="#cecece" />
-=======
+
         <!--<com.youth.banner.Banner-->
             <!--android:id="@+id/mbanner"-->
             <!--android:layout_width="match_parent"-->
@@ -110,10 +107,6 @@
                     android:textColorHint="#ffffff"
                     android:textSize="28px" />
 
-
-
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mlistview"
                 android:layout_width="wrap_content"
@@ -123,4 +116,3 @@
         </RelativeLayout>
     </com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView>
 </RelativeLayout>
-

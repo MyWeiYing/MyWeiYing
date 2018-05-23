@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
+
+
 <com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/container_style"
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
+
     <RelativeLayout
+        style="@style/container_style"
         android:gravity="left"
-        android:orientation="vertical"
-        style="@style/container_style">
+        android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/top_menu"
             android:layout_width="wrap_content"
@@ -44,6 +44,7 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
@@ -88,6 +89,7 @@
 
             </LinearLayout>
         </ScrollView>
+
         <LinearLayout
             android:id="@+id/bottom_menu"
             android:layout_width="wrap_content"
@@ -118,29 +120,26 @@
 
         </LinearLayout>
     </RelativeLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/bottom_tabbar"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.hjm.bottomtabbar.BottomTabBar>
+        <com.hjm.bottomtabbar.BottomTabBar
+            android:id="@+id/bottom_tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.hjm.bottomtabbar.BottomTabBar>
 
 
-    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
-        android:id="@+id/main_myTileBar"
-        android:layout_width="match_parent"
-        android:layout_height="67.5dp"
-        android:background="@color/colorPrimary">
+        <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
+            android:id="@+id/main_myTileBar"
+            android:layout_width="match_parent"
+            android:layout_height="67.5dp"
+            android:background="@color/colorPrimary">
 
-    </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
-</RelativeLayout>
+        </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
+    </RelativeLayout>
 
 </com.example.xiaolitongxue.wieying.view.custom.ResideLayout>
-
-<<<<<<< HEAD
-</RelativeLayout>
-=======
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0

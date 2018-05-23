@@ -19,10 +19,10 @@
 
         </activity>
         <activity android:name=".view.activity.SpecialClassifyActivity" />
-        <!--<activity-->
-            <!--android:name=".view.activity.JinxuanxiangqingActivity"-->
-            <!--android:label="@string/title_activity_jinxuanxiangqing"-->
-            <!--android:theme="@style/AppTheme" />-->
+        <activity
+            android:name=".view.activity.JinxuanxiangqingActivity"
+            android:label="@string/title_activity_jinxuanxiangqing"
+            android:theme="@style/AppTheme" />
         <activity android:name=".view.activity.VideoParticularsActivity" />
         <activity android:name=".view.activity.WelcomeActivity">
             <intent-filter>
