@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/container_style"
@@ -140,8 +137,3 @@
 </RelativeLayout>
 
 </com.example.xiaolitongxue.wieying.view.custom.ResideLayout>
-
-<<<<<<< HEAD
-</RelativeLayout>
-=======
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0

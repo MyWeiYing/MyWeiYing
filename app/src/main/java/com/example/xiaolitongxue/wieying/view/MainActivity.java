@@ -1,9 +1,7 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
-<<<<<<< HEAD
 import android.widget.RelativeLayout;
-=======
 
 
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.widget.RelativeLayout;
 
 import android.widget.TextView;
 
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -63,9 +60,8 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     protected void initData() {
-<<<<<<< HEAD
         mainMyTileBar.setAlpha(0);
-=======
+
         avatar.setOnClickListener(this);
         desc.setOnClickListener(this);
         tvCollect.setOnClickListener(this);
@@ -77,7 +73,6 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
         about.setOnClickListener(this);
         theme.setOnClickListener(this);
         mainMyTileBar.setAlpha(alpha);
->>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())

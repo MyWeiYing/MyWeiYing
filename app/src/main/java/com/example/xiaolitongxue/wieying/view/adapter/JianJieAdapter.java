@@ -41,7 +41,7 @@ public class JianJieAdapter extends RecyclerView.Adapter<JianJieAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               
+
             }
         });
     }
