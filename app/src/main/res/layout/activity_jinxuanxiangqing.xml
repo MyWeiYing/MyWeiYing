@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_colorful"
     tools:context=".view.activity.JinxuanxiangqingActivity">
 
     <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
@@ -13,11 +14,25 @@
         android:background="@color/colorAccent"/>
 
     <com.dl7.player.media.IjkPlayerView
-        android:layout_marginTop="67.5dp"
+       android:layout_below="@id/main_myTileBar"
         android:id="@+id/player_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
-
+    <android.support.design.widget.TabLayout
+        android:id="@+id/mtablayout"
+        app:tabTextColor="#ffffff"
+        app:tabSelectedTextColor="#61e94c"
+        app:tabIndicatorColor="#61e94c"
+        android:layout_below="@id/player_view"
+        android:layout_centerHorizontal="true"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mviewpager"
+        android:layout_below="@+id/mtablayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <!--<android.support.design.widget.FloatingActionButton-->
         <!--android:id="@+id/fab"-->
@@ -27,4 +42,4 @@
         <!--android:layout_margin="@dimen/fab_margin"-->
         <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

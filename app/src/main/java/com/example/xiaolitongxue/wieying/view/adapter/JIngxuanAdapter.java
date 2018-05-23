@@ -54,6 +54,7 @@ public class JIngxuanAdapter extends RecyclerView.Adapter<JIngxuanAdapter.ViewHo
                 intent.putExtra("title",list.get(position).getTitle());
                 intent.putExtra("videourl",list.get(position).getShareURL());
                 intent.putExtra("pic",list.get(position).getPic());
+                intent.putExtra("description",list.get(position).getDescription());
                 context.startActivity(intent);
             }
         });

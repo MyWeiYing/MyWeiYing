@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/jianjieimg"
+        android:layout_width="110dp"
+        android:layout_height="240dp"
+        android:background="@drawable/shape_gray_square_bg"
+        android:padding="5dp"
+        />
 </android.support.constraint.ConstraintLayout>
