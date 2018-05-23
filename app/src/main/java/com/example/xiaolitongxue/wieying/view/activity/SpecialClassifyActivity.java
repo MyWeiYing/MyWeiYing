@@ -78,8 +78,6 @@ public class SpecialClassifyActivity extends BaseActivity implements SpecialICla
                                 specialClassifyRecycler.setAdapter(specialClassifyAdapter);
                             }
                         });
-
-
                     }
                 });
             }

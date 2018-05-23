@@ -1,21 +1,16 @@
 package com.example.xiaolitongxue.wieying.view.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
-import com.example.xiaolitongxue.wieying.view.activity.JinxuanxiangqingActivity;
 
 import java.util.List;
 
@@ -46,17 +41,7 @@ public class JIngxuanAdapter extends RecyclerView.Adapter<JIngxuanAdapter.ViewHo
         }
 //
         holder.cchoicenesstextview.setText(list.get(position).getTitle());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,""+list.get(position).getShareURL(),Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(context,JinxuanxiangqingActivity.class);
 
-                intent.putExtra("videourl",list.get(position).getShareURL());
-
-                context.startActivity(intent);
-            }
-        });
 
 
     }

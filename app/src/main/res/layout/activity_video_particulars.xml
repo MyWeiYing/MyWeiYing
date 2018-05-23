@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/container_style"
     tools:context=".view.activity.VideoParticularsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="67.5pt"
+        android:background="@color/colorPrimary"
+        ></com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
+    <com.dl7.player.media.IjkPlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+</RelativeLayout>

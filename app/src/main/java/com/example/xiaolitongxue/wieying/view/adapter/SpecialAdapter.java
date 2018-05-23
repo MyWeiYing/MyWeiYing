@@ -56,6 +56,7 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
                 intent.putExtra("title",list.get(position).getTitle());
                 intent.putExtra("loadURL",list.get(position).getLoadURL());
                 context.startActivity(intent);
+
             }
         });
     }
