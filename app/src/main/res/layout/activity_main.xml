@@ -1,12 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/container_style"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
+    <RelativeLayout
+        android:gravity="left"
+        android:orientation="vertical"
+        style="@style/container_style">
+        <LinearLayout
+            android:id="@+id/top_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="55dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/photo"
+                app:riv_border_width="0dip"
+                app:riv_corner_radius="100dp" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:text="微影，微一下"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_menu"
+            android:layout_below="@+id/top_menu">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_collect"
+                    style="@style/MenuStyle"
+                    android:text="@string/collection" />
+
+                <TextView
+                    android:id="@+id/tv_mydown"
+                    style="@style/MenuStyle"
+                    android:text="@string/download" />
+
+                <TextView
+                    android:id="@+id/tv_fuli"
+                    style="@style/MenuStyle"
+                    android:text="@string/fuli" />
+
+                <TextView
+                    android:id="@+id/tv_share"
+                    style="@style/MenuStyle"
+                    android:text="@string/share" />
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    style="@style/MenuStyle"
+                    android:text="@string/feedback" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    style="@style/MenuStyle"
+                    android:text="@string/setting" />
+
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/bottom_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:padding="12dp"
+                android:text="关于"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="12dp"
+                android:text="主题"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.hjm.bottomtabbar.BottomTabBar
+        android:id="@+id/bottom_tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.hjm.bottomtabbar.BottomTabBar>
 
 
     <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
@@ -16,11 +136,11 @@
         android:background="@color/colorPrimary">
 
     </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
-
-    <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/bottom_tabbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        ></com.hjm.bottomtabbar.BottomTabBar>
-
 </RelativeLayout>
+
+</com.example.xiaolitongxue.wieying.view.custom.ResideLayout>
+
+<<<<<<< HEAD
+</RelativeLayout>
+=======
+>>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0

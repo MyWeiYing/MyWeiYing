@@ -1,7 +1,5 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,18 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
-import com.example.xiaolitongxue.wieying.view.MainActivity;
-import com.example.xiaolitongxue.wieying.view.activity.JinxuanxiangqingActivity;
 import com.example.xiaolitongxue.wieying.view.adapter.JIngxuanAdapter;
-
-import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
 import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.youth.banner.Banner;

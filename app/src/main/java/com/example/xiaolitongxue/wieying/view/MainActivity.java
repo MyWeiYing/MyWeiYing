@@ -1,7 +1,19 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
+<<<<<<< HEAD
 import android.widget.RelativeLayout;
+=======
+
+
+import android.os.Bundle;
+
+import android.view.View;
+import android.widget.RelativeLayout;
+
+import android.widget.TextView;
+
+>>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
 import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
@@ -12,15 +24,37 @@ import com.example.xiaolitongxue.wieying.view.fragment.FindFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.MyFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.SpecialFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener {
+public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener,View.OnClickListener {
 
     @BindView(R.id.bottom_tabbar)
     BottomTabBar bottomTabbar;
     @BindView(R.id.main_myTileBar)
     MyTitleBar mainMyTileBar;
+    @BindView(R.id.avatar)
+    RoundedImageView avatar;
+    @BindView(R.id.desc)
+    TextView desc;
+    @BindView(R.id.tv_collect)
+    TextView tvCollect;
+    @BindView(R.id.tv_mydown)
+    TextView tvMydown;
+    @BindView(R.id.tv_fuli)
+    TextView tvFuli;
+    @BindView(R.id.tv_share)
+    TextView tvShare;
+    @BindView(R.id.tv_feedback)
+    TextView tvFeedback;
+    @BindView(R.id.tv_setting)
+    TextView tvSetting;
+    @BindView(R.id.about)
+    TextView about;
+    @BindView(R.id.theme)
+    TextView theme;
+    private float alpha = 0;
 
    /* @Override
     protected void initView() {
@@ -29,7 +63,21 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     protected void initData() {
+<<<<<<< HEAD
         mainMyTileBar.setAlpha(0);
+=======
+        avatar.setOnClickListener(this);
+        desc.setOnClickListener(this);
+        tvCollect.setOnClickListener(this);
+        tvMydown.setOnClickListener(this);
+        tvFuli.setOnClickListener(this);
+        tvShare.setOnClickListener(this);
+        tvFeedback.setOnClickListener(this);
+        tvSetting.setOnClickListener(this);
+        about.setOnClickListener(this);
+        theme.setOnClickListener(this);
+        mainMyTileBar.setAlpha(alpha);
+>>>>>>> 400914b7512c5f9b0d87e4817e2efba055f8ccc0
         mainMyTileBar.setBackgroundColor(Color.RED);
         //初始化数据
         bottomTabbar.init(getSupportFragmentManager())
@@ -76,5 +124,44 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
     @Override
     public void scrollOritention(int l, int t, int oldl, int oldt) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.avatar:
+                Toast.makeText(MainActivity.this,"我是头像",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.desc:
+                //微影，微一下
+
+                break;
+            case R.id.tv_collect:
+                //收藏
+
+                break;
+            case R.id.tv_mydown:
+                //下载
+                break;
+            case R.id.tv_fuli:
+                //福利
+                break;
+            case R.id.tv_share:
+                //分享
+                break;
+            case R.id.tv_feedback:
+                //建议反馈
+                break;
+            case R.id.tv_setting:
+                //设置
+                break;
+            case R.id.about:
+                //关于
+                break;
+            case R.id.theme:
+                //主题
+                break;
+
+        }
     }
 }

@@ -10,6 +10,7 @@ import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
 public interface SpecialIView extends BaseIView{
 //    成功的
     void onSuccess(SpeciallBean speciallBean);
+//    void onSuccess(ChoicenessBean speciallBean);
 //    失败的
     void onError(String s);
 }

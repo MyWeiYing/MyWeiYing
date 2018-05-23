@@ -22,7 +22,12 @@ public interface MyService {
     @POST("front/homePageApi/homePage.do")
     Observable<ChoicenessBean> getChoicenessData();
 
+
     //    专题
+   /*  @FormUrlEncoded
+    @POST("/front/homePageApi/homePage.do")
+    Observable<ChoicenessBean> getSpeciallData();*/
+
     @FormUrlEncoded
     @POST("/front/columns/getVideoList.do")
     Observable<SpeciallBean> getSpeciallData(@FieldMap Map<String,String> map);
