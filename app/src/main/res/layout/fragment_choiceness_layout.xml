@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
     <com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView
         android:id="@+id/mScrollview"
