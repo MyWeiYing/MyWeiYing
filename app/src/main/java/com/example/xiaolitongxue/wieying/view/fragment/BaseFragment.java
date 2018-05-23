@@ -29,6 +29,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         unbinder = ButterKnife.bind(this, view);
         p = newPresenter();
         Log.e("myMessage",""+p);
+        Log.e("myMessage",""+p);
         if (p!=null){
             p.attachView(this);
         }

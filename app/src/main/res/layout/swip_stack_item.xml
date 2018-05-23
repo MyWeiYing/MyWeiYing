@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg">
+
+    <TextView
+        android:id="@+id/swip_stack_title"
+        android:layout_width="wrap_content"
+        android:layout_height="86pt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10pt"
+        android:gravity="center_vertical"
+        android:text="标题"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/swip_stack_img"
+        android:layout_width="280pt"
+        android:layout_height="392pt"
+        android:layout_below="@id/swip_stack_title"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/swip_stack_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/swip_stack_img"
+        android:ellipsize="end"
+        android:maxLines="7"
+        android:padding="10pt"
+        android:singleLine="false"
+        android:textColor="@color/white"
+        android:textSize="27pt" />
+
+</RelativeLayout>

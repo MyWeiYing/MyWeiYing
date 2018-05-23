@@ -1,6 +1,7 @@
 package com.example.xiaolitongxue.wieying.model.interfaces;
 
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
+import com.example.xiaolitongxue.wieying.model.bean.FindBean;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallClassifyBean;
 
@@ -30,6 +31,11 @@ public interface MyService {
     @FormUrlEncoded
     @POST("/front/columns/getVideoList.do")
     Observable<SpeciallBean> getSpeciallData(@FieldMap Map<String,String> map);
+
+
+    @FormUrlEncoded
+    @POST("front/columns/getVideoList.do")
+    Observable<FindBean> getFindData(@FieldMap Map<String,String> map);
 
 /*    //    专题 Classify
     @FormUrlEncoded
