@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
+import com.example.xiaolitongxue.wieying.view.custom.NetTypeUtils;
 import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.fragment.ChoicenessFragment;
 import com.example.xiaolitongxue.wieying.view.fragment.FindFragment;
@@ -25,7 +26,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener,View.OnClickListener {
+public class MainActivity extends BaseActivity implements ObserveScrollView.ScrollListener, View.OnClickListener {
 
     @BindView(R.id.bottom_tabbar)
     BottomTabBar bottomTabbar;
@@ -58,8 +59,48 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
         //初始化控件
     }*/
 
+
     @Override
     protected void initData() {
+
+
+        //首先判断有没有连接网络
+        boolean result = NetTypeUtils.isConn(MainActivity.this);
+        if (result) {
+            //进行请求网络  数据（HttpUrl）
+            avatar.setOnClickListener(this);
+            desc.setOnClickListener(this);
+            tvCollect.setOnClickListener(this);
+            tvMydown.setOnClickListener(this);
+            tvFuli.setOnClickListener(this);
+            tvShare.setOnClickListener(this);
+            tvFeedback.setOnClickListener(this);
+            tvSetting.setOnClickListener(this);
+            about.setOnClickListener(this);
+            theme.setOnClickListener(this);
+            mainMyTileBar.setAlpha(alpha);
+            mainMyTileBar.setBackgroundColor(Color.RED);
+            //初始化数据
+            bottomTabbar.init(getSupportFragmentManager())
+                    .setImgSize(70, 70)
+                    .setFontSize(14)
+                    .setTabPadding(40, 0, 10)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
+                    .setTabPadding(40, 0, 0)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
+
+
+                    .setTabPadding(40, 0, 10)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
+
+                    .setTabPadding(40, 0, 0)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
+
+                    .setTabBarBackgroundResource(R.drawable.bottom_bg)
+                    .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
+                    .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
+                    .addTabItem("发现", R.drawable.fancy_select, R.drawable.fancy, FindFragment.class)
+                    .addTabItem("我的", R.drawable.my_select, R.drawable.my, MyFragment.class)
         mainMyTileBar.setAlpha(0);
 
         avatar.setOnClickListener(this);
@@ -92,6 +133,10 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                 .addTabItem("发现", R.drawable.fancy_select, R.drawable.fancy, FindFragment.class)
                 .addTabItem("我的", R.drawable.my_select, R.drawable.my, MyFragment.class)
 //                .setTabPadding(20,6,10)
+                    .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
+                        @Override
+                        public void onTabChange(int position, String name) {
+                            mainMyTileBar.setTitleBarTitle(name);
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
                     public void onTabChange(int position, String name) {
@@ -105,9 +150,12 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                         bottomTabbar.setLayoutParams(params);
                         mainMyTileBar.setTitleBarTitle(name);
 
-                    }
-                });
+                        }
+                    });
 //            mainMyTileBar.setBackgroundColor(Color.YELLOW);
+        } else {
+            NetTypeUtils.openNetSettingDg(MainActivity.this);
+        }
 
     }
 
@@ -123,9 +171,9 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.avatar:
-                Toast.makeText(MainActivity.this,"我是头像",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "我是头像", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.desc:
                 //微影，微一下

@@ -64,10 +64,6 @@
                     android:focusable="false"
                     android:textColorHint="#ffffff"
                     android:textSize="28px" />
-
-
-
-
         </RelativeLayout>
         <TextView
             android:id="@+id/text1"
