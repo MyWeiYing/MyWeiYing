@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 
 <com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,7 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.makeramen.roundedimageview.RoundedImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/avatar"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -139,7 +141,9 @@
             android:layout_height="67.5dp"
             android:background="@color/colorPrimary">
 
+
         </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
     </RelativeLayout>
+
 
 </com.example.xiaolitongxue.wieying.view.custom.ResideLayout>

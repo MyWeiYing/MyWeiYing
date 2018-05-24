@@ -1,18 +1,14 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.graphics.Color;
-
 import android.widget.RelativeLayout;
-
-
-
+import android.widget.RelativeLayout;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import android.widget.TextView;
-
 
 import android.widget.Toast;
 
@@ -63,7 +59,6 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
     @Override
     protected void initData() {
-
         mainMyTileBar.setAlpha(0);
 
         avatar.setOnClickListener(this);

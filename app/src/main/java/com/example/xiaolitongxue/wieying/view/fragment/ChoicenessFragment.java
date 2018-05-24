@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
