@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SosuoActivity"
+    android:background="@drawable/bg_colorful"
+    >
+
+  <RelativeLayout
+      android:background="#ed3818"
+      android:layout_width="match_parent"
+      android:layout_height="180pt">
+      <RelativeLayout
+          android:layout_marginLeft="60pt"
+          android:id="@+id/Relatadrawcolors"
+          android:layout_width="500pt"
+          android:layout_height="76pt"
+          android:layout_marginTop="80pt"
+          android:alpha="50"
+          android:background="@drawable/shape_gray_square_sousuo">
+
+          <ImageView
+              android:id="@+id/solog"
+              android:layout_width="25dp"
+              android:layout_height="25dp"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="30pt"
+              android:src="@drawable/search" />
+
+          <EditText
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="10dp"
+              android:layout_toRightOf="@id/solog"
+              android:background="@null"
+              android:gravity="center_vertical"
+              android:hint="一念天堂"
+              android:focusable="false"
+              android:textColorHint="#ffffff"
+              android:textSize="28px" />
+
+      </RelativeLayout>
+      <TextView
+          android:paddingLeft="50pt"
+          android:layout_width="70pt"
+          android:layout_height="76pt"
+          android:text="取消"
+          android:textColor="#fff"
+          android:gravity="center"
+          android:textSize="16sp"
+          android:layout_marginTop="80pt"
+          android:layout_toRightOf="@id/Relatadrawcolors"
+          />
+
+  </RelativeLayout>
+
+
+
+
+</RelativeLayout>

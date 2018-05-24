@@ -3,7 +3,6 @@ package com.example.xiaolitongxue.wieying.view.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.xiaolitongxue.wieying.R;
-import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.bean.FindBean;
-import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
 import com.example.xiaolitongxue.wieying.presenter.FindPresenter;
 import com.example.xiaolitongxue.wieying.view.adapter.SwipStackAdapter;
-import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.example.xiaolitongxue.wieying.view.interfaces.FindIView;
 
 import java.util.ArrayList;
@@ -41,7 +37,7 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     private List<FindBean.RetBean.ListBean> list = new ArrayList<>();
 
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_find_layout, container, false);
 
         return view;
@@ -84,7 +80,7 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     }
 
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
         btn = view.findViewById(R.id.find_btn);
         stack = view.findViewById(R.id.find_swip_stack);
     }

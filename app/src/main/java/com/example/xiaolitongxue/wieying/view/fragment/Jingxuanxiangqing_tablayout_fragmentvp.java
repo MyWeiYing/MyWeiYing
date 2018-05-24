@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,40 +18,48 @@ import android.widget.Toast;
 
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallBean;
+import com.example.xiaolitongxue.wieying.model.bean.VideoPinglunBean;
+import com.example.xiaolitongxue.wieying.presenter.FindPinglunPresenter;
 import com.example.xiaolitongxue.wieying.presenter.SpecialPresenter;
 import com.example.xiaolitongxue.wieying.view.adapter.JianJieAdapter;
+import com.example.xiaolitongxue.wieying.view.adapter.PinglunAdapter;
+import com.example.xiaolitongxue.wieying.view.interfaces.IFindPinglunView;
 import com.example.xiaolitongxue.wieying.view.interfaces.SpecialIView;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Jingxuanxiangqing_tablayout_fragmentvp extends BaseFragment<SpecialPresenter> implements SpecialIView {
+public class Jingxuanxiangqing_tablayout_fragmentvp extends BaseFragment<SpecialPresenter> implements SpecialIView,IFindPinglunView {
     private boolean flag;
     private RelativeLayout animoOpentext;
     private TextView texts;
     private TextView animoButton;
     private SpecialPresenter presenter;
     private RecyclerView jingxuanxiangqingRecycleview;
-
+    private RecyclerView jingxuanxiangqingRecycleviewpinglun;
+    private FindPinglunPresenter findPinglunPresenter;
 
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_tablayout_fragmentvp, container, false);
         return view;
     }
 
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
         texts = view.findViewById(R.id.texts);
         animoOpentext = view.findViewById(R.id.animoOpentext);
         animoButton = view.findViewById(R.id.animoButton);
         jingxuanxiangqingRecycleview = view.findViewById(R.id.JingxuanxiangqingRecycleview);
+        jingxuanxiangqingRecycleviewpinglun = view.findViewById(R.id.JingxuanxiangqingRecycleviewpinglun);
     }
 
 
 
     @Override
     void initData(@Nullable Bundle savedInstanceState) {
+        findPinglunPresenter = new FindPinglunPresenter(this);
+
         Bundle arguments = getArguments();
         String data = arguments.getString("data");
         String description = arguments.getString("description");
@@ -86,6 +95,12 @@ public class Jingxuanxiangqing_tablayout_fragmentvp extends BaseFragment<Special
         if (data.equals("评论")) {
             animoOpentext.setVisibility(View.GONE);
             texts.setVisibility(View.GONE);
+//            FindPinglunPresenter findPinglunPresenter = new FindPinglunPresenter();
+//            findPinglunPresenter.VideoFindPinglun("CMCC_00000000000000001_621653189");
+
+
+            findPinglunPresenter.getFindViewPinglun("CMCC_00000000000000001_621653189");
+
         }
 
     }
@@ -120,8 +135,19 @@ public class Jingxuanxiangqing_tablayout_fragmentvp extends BaseFragment<Special
         jingxuanxiangqingRecycleview.setNestedScrollingEnabled(false);
     }
 
+
+    @Override
+    public void onSuccess(VideoPinglunBean data) {
+        Log.d("VideoPinglunBean=======",data.getMsg()+"");
+        //加载适配器
+        PinglunAdapter pinglunAdapter = new PinglunAdapter(data.getRet().getList(),getContext());
+        jingxuanxiangqingRecycleviewpinglun.setLayoutManager(new GridLayoutManager(getActivity(), LinearLayoutManager.VERTICAL));
+        jingxuanxiangqingRecycleviewpinglun.setAdapter(pinglunAdapter);
+    }
+
     @Override
     public void onError(String s) {
         Log.d("onSuccess===",s+"");
     }
+
 }

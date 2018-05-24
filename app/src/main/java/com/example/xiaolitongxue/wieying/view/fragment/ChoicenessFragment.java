@@ -1,5 +1,6 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
+import com.example.xiaolitongxue.wieying.view.activity.SosuoActivity;
 import com.example.xiaolitongxue.wieying.view.adapter.JIngxuanAdapter;
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
 import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
@@ -53,7 +55,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
 
     //创建并返回数据
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         view = inflater.inflate(R.layout.fragment_choiceness_layout, container, false);
         return view;
     }
@@ -61,7 +63,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
 
 
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
         mbanner = view.findViewById(R.id.mbanner);
         mlistview = view.findViewById(R.id.mlistview);
         relatadrawcolor = view.findViewById(R.id.Relatadrawcolor);
@@ -89,7 +91,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         titlebar.bringToFront();
 // ;
         presenter.loadDataFromServer();
-//        上滑监听事件
+//        上滑监听事件=== -. - 暂时没用
        mScrollview.setScrollListener(new ObserveScrollView.ScrollListener() {
 
            @Override
@@ -112,7 +114,14 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
 
            }
        });
-
+        //跳转搜索页面
+        relatadrawcolor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SosuoActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

@@ -38,7 +38,7 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
     private SmartRefreshLayout smartref;
 
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_special_layout, container, false);
 
 
@@ -74,7 +74,7 @@ public class SpecialFragment extends BaseFragment<SpecialPresenter> implements S
     }
 
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
 //        presenter = getPresenter();
         p = getPresenter();
         special_fragment_recycler = view.findViewById(R.id.special_fragment_recycler);
