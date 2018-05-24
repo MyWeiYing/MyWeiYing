@@ -3,7 +3,6 @@ package com.example.xiaolitongxue.wieying.view.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.xiaolitongxue.wieying.R;
-import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.bean.FindBean;
-import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
 import com.example.xiaolitongxue.wieying.presenter.FindPresenter;
 import com.example.xiaolitongxue.wieying.view.adapter.SwipStackAdapter;
-import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.example.xiaolitongxue.wieying.view.interfaces.FindIView;
 
 import java.util.ArrayList;
@@ -43,7 +39,6 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     @Override
     View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_find_layout, container, false);
-
         return view;
     }
 
@@ -55,14 +50,16 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     }
 
     private void init() {
+
         swipStackAdapter = new SwipStackAdapter(list, getContext());
         stack.setAdapter(swipStackAdapter);
-        initListener();
 
+        initListener();
         loadMore();
     }
 
     private void initListener() {
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +94,10 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
 
     @Override
     public void onSuccess(FindBean findBean) {
+        if (findBean.getRet().getList().size() == 0){
+            pnum = 0;
+            loadMore();
+        }
         list.addAll(findBean.getRet().getList());
         swipStackAdapter.notifyDataSetChanged();
     }

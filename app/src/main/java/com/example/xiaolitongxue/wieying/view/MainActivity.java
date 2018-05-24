@@ -2,6 +2,7 @@ package com.example.xiaolitongxue.wieying.view;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.widget.RelativeLayout;
 
 
 import android.os.Bundle;

@@ -29,6 +29,7 @@ public class CommonUtil {
             sharedPreferences = MyApplication.getAppContext().getSharedPreferences("cgShared", Context.MODE_PRIVATE);
     }
 
+
     public static void saveColorValue(int color) {
         getSharePreference();
         sharedPreferences.edit().putInt(SharedKey.COLOR_KEY, color).commit();

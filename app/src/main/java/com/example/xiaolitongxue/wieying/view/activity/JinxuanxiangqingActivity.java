@@ -141,6 +141,7 @@ public class JinxuanxiangqingActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         playerView.onDestroy();
     }
 
