@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/container_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_parent_Layout"
+    android:background="@drawable/deep_orange_background"
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
+    <!--style="@style/container_style"-->
     <RelativeLayout
+        android:id="@+id/main_drawable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="left"
-        android:orientation="vertical"
-        style="@style/container_style">
+        android:background="@drawable/deep_orange_background"
+        android:orientation="vertical">
+        <!--style="@style/container_style"-->
         <LinearLayout
             android:id="@+id/top_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/avatar"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -42,6 +48,7 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
@@ -86,6 +93,7 @@
 
             </LinearLayout>
         </ScrollView>
+
         <LinearLayout
             android:id="@+id/bottom_menu"
             android:layout_width="wrap_content"
@@ -116,24 +124,26 @@
 
         </LinearLayout>
     </RelativeLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/bottom_tabbar"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.hjm.bottomtabbar.BottomTabBar>
+        <com.hjm.bottomtabbar.BottomTabBar
+            android:id="@+id/bottom_tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.hjm.bottomtabbar.BottomTabBar>
 
 
-    <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
-        android:id="@+id/main_myTileBar"
-        android:layout_width="match_parent"
-        android:layout_height="67.5dp"
-        android:background="@color/colorPrimary">
+        <com.example.xiaolitongxue.wieying.view.custom.MyTitleBar
+            android:id="@+id/main_myTileBar"
+            android:layout_width="match_parent"
+            android:layout_height="67.5dp"
+            android:background="@color/colorPrimary">
 
-    </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
-</RelativeLayout>
+        </com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
+    </RelativeLayout>
 
 </com.example.xiaolitongxue.wieying.view.custom.ResideLayout>
