@@ -1,5 +1,6 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
 import com.example.xiaolitongxue.wieying.view.adapter.JIngxuanAdapter;
+import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
 import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.youth.banner.Banner;
@@ -47,6 +49,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     private String img5 = "http://phonemovie.ks3-cn-beijing.ksyun.com/image/2017/06/20/1497940129455060640.jpg";
     private ObserveScrollView mScrollview;
     private JIngxuanAdapter jIngxuanAdapter;
+    private MyTitleBar titlebar;
 
     //创建并返回数据
     @Override
@@ -63,6 +66,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         mlistview = view.findViewById(R.id.mlistview);
         relatadrawcolor = view.findViewById(R.id.Relatadrawcolor);
         mScrollview = view.findViewById(R.id.mScrollview);
+        titlebar = view.findViewById(R.id.choiceness_mytitlebar);
         presenter = getPresenter();
         //findViewById的方法可以使用黄油刀
 
@@ -80,7 +84,9 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         listimgs.add(img5);
         mbanner.setImages(listimgs);
         mbanner.start();
-
+        titlebar.setAlpha(0);
+        titlebar.setBackgroundColor(Color.RED);
+        titlebar.bringToFront();
 // ;
         presenter.loadDataFromServer();
 //        上滑监听事件
@@ -91,6 +97,17 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
                Log.d("loaction-y",""+t);
                if (t>0){
                    Log.d("上滑了",""+t);
+               }
+
+               if (t == 0) {titlebar.setAlpha(0);}
+
+               if (t > 0 && t < 300){
+                   float i = (float) t / (float) 300;
+                   Log.d(TAG, "i:" + i);
+                   titlebar.setAlpha(i);
+               }
+               if (t > 300){
+                   titlebar.setAlpha(1);
                }
 
            }
