@@ -123,6 +123,14 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                     .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                         @Override
                         public void onTabChange(int position, String name) {
+                            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                            if (position != 0) {
+                                mainMyTileBar.setAlpha(1);
+                                params.addRule(RelativeLayout.BELOW, mainMyTileBar.getId());
+                            } else {
+                                mainMyTileBar.setAlpha(0);
+                            }
+                            bottomTabbar.setLayoutParams(params);
                             mainMyTileBar.setTitleBarTitle(name);
 
                         }
