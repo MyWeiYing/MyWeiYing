@@ -1,4 +1,4 @@
-package com.example.animation;
+package com.example.xiaolitongxue.wieying.view.adapter;
 
 import android.content.Context;
 import android.os.Build;
@@ -6,6 +6,8 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import com.example.xiaolitongxue.wieying.R;
 
 import java.util.List;
 
@@ -15,6 +17,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * author: 晨光光
  * date : 2018/5/22 16:14
+ *
+ * 主题
  */
 public class ThemeAdapter extends BaseAdapter {
     private List<Integer> colorData;

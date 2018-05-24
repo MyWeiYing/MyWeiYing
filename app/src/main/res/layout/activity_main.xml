@@ -3,12 +3,19 @@
 <com.example.xiaolitongxue.wieying.view.custom.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/container_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_parent_Layout"
+    android:background="@drawable/deep_orange_background"
     tools:context="com.example.xiaolitongxue.wieying.view.MainActivity">
     <RelativeLayout
+        android:id="@+id/main_drawable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="left"
-        android:orientation="vertical"
-        style="@style/container_style">
+        android:background="@drawable/deep_orange_background"
+        android:orientation="vertical">
+        <!--style="@style/container_style"-->
         <LinearLayout
             android:id="@+id/top_menu"
             android:layout_width="wrap_content"

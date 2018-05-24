@@ -1,8 +1,11 @@
 package com.example.xiaolitongxue.wieying.application;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.os.Handler;
+import android.os.Process;
 import android.view.WindowManager;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -19,11 +22,26 @@ public class MyApplication extends Application {
 
     public final static float DESIGN_WIDTH = 720; //绘制页面时参照的设计图宽度
 
+    private static int myTid;
+    private static Handler handler;
+    private static Context appContext;
+
+    public static Context getAppContext() {
+        return appContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         resetDensity();//注意不要漏掉
+//        Fresco
         Fresco.initialize(this);
+//        主题
+        //初始化frsco
+        myTid = Process.myTid();
+        handler = new Handler();
+        //设置全局的Header构建器
+        appContext = this;
     }
 
     @Override
@@ -36,5 +54,13 @@ public class MyApplication extends Application {
         Point size = new Point();
         ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
         getResources().getDisplayMetrics().xdpi = size.x/DESIGN_WIDTH*72f;
+    }
+//    主题
+    public static int getMyTid() {
+        return myTid;
+    }
+
+    public static Handler getHandler() {
+        return handler;
     }
 }

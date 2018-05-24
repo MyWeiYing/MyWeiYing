@@ -1,30 +1,34 @@
-package com.example.animation;
+package com.example.xiaolitongxue.wieying.view.custom;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Process;
 
+import com.example.xiaolitongxue.wieying.application.MyApplication;
+
 /**
  * author: 晨光光
  * date : 2018/5/18 17:13
+ *   主题
  */
 public class CommonUtil {
 
     private static SharedPreferences sharedPreferences;
 
     public static void runUiThread(Runnable runnable) {
-        if (Process.myTid() == YDApplication.getMyTid()) {
+        if (Process.myTid() == MyApplication.getMyTid()) {
             runnable.run();
         } else {
-            YDApplication.getHandler().post(runnable);
+            MyApplication.getHandler().post(runnable);
         }
     }
 
 
     private static void getSharePreference() {
         if (sharedPreferences == null)
-            sharedPreferences = YDApplication.getAppContext().getSharedPreferences("cgShared", Context.MODE_PRIVATE);
+            sharedPreferences = MyApplication.getAppContext().getSharedPreferences("cgShared", Context.MODE_PRIVATE);
     }
+
 
     public static void saveColorValue(int color) {
         getSharePreference();

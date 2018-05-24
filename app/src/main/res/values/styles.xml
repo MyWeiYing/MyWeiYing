@@ -12,7 +12,8 @@
     <style name="container_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@drawable/bg_colorful</item>
+        <!--<item name="android:background">@drawable/bg_colorful</item>-->
+        <item name="android:background">@drawable/deep_orange_background</item>
     </style>
 
     <style name="MenuStyle">

@@ -39,7 +39,6 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     @Override
     protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_find_layout, container, false);
-
         return view;
     }
 
@@ -51,14 +50,16 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     }
 
     private void init() {
+
         swipStackAdapter = new SwipStackAdapter(list, getContext());
         stack.setAdapter(swipStackAdapter);
-        initListener();
 
+        initListener();
         loadMore();
     }
 
     private void initListener() {
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +94,10 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
 
     @Override
     public void onSuccess(FindBean findBean) {
+        if (findBean.getRet().getList().size() == 0){
+            pnum = 0;
+            loadMore();
+        }
         list.addAll(findBean.getRet().getList());
         swipStackAdapter.notifyDataSetChanged();
     }
