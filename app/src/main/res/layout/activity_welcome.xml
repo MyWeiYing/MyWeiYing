@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:text="微影"
+        android:text="微影Team"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="50pt"
         android:textSize="18sp"/>

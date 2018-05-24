@@ -10,12 +10,11 @@
         android:layout_height="67.5dp"></com.example.xiaolitongxue.wieying.view.custom.MyTitleBar>
 
 
-
     <com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView
         android:id="@+id/mScrollview"
-        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -59,32 +58,32 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/solog"
                     android:background="@null"
+                    android:focusable="false"
                     android:gravity="center_vertical"
                     android:hint="一念天堂"
                     android:textColorHint="#ffffff"
                     android:textSize="28px" />
 
 
-
-
             </RelativeLayout>
+
             <TextView
                 android:id="@+id/text1"
-                android:layout_below="@id/mbanner"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:layout_below="@id/mbanner"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="精彩推荐"
-                android:layout_marginLeft="20dp"
-                android:textColor="#cecece"
-                />
+                android:textColor="#cecece" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mlistview"
                 android:layout_width="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/text1"
-                />
+                android:layout_centerHorizontal="true" />
+
         </RelativeLayout>
     </com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView>
 </RelativeLayout>
