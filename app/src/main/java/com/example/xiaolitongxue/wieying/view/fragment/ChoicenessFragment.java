@@ -1,6 +1,8 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +28,10 @@ import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.youth.banner.Banner;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +41,7 @@ import java.util.List;
  */
 
 public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implements ChoicenessIView {
+
     private View layout;
     private View view;
     private ChoicenessPresenter presenter;
@@ -52,6 +59,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     private ObserveScrollView mScrollview;
     private JIngxuanAdapter jIngxuanAdapter;
     private MyTitleBar titlebar;
+    private SharedPreferences six;
 
     //创建并返回数据
     @Override
@@ -59,8 +67,6 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         view = inflater.inflate(R.layout.fragment_choiceness_layout, container, false);
         return view;
     }
-
-
 
     @Override
     protected void findViewByIdView(View view) {
@@ -76,6 +82,9 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     void initData(@Nullable Bundle savedInstanceState) {
+
+        Log.d(TAG, "dsfadfsafdsfdasfas");
+
         relatadrawcolor.getBackground().setAlpha(50);
 //        加载轮播图
         mbanner.setImageLoader(new MyBanner());
@@ -100,7 +109,9 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
                if (t>0){
                    Log.d("上滑了",""+t);
                }
-
+               six = getContext().getSharedPreferences("six", Context.MODE_PRIVATE);
+               int titleColor = six.getInt("titleColor", Color.RED);
+               titlebar.setBackgroundColor(titleColor);
                if (t == 0) {titlebar.setAlpha(0);}
 
                if (t > 0 && t < 300){
@@ -124,6 +135,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         });
 
     }
+
 
     //创建Presenter实例
     @Override

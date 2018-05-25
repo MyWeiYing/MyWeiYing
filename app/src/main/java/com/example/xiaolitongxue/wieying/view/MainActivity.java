@@ -1,8 +1,8 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.util.Log;
 import android.widget.RelativeLayout;
 
 
@@ -67,6 +67,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
     ResideLayout maxParent;
     @BindView(R.id.main_drawable_layout)
     RelativeLayout relativeLayout;
+    private float alpha = 0;
 
     private View view1;
    /* @Override
@@ -123,16 +124,14 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                     .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                         @Override
                         public void onTabChange(int position, String name) {
-                            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-                            if (position == 0){
-                                Log.d("test","哈哈哈0");
-                                mainMyTileBar.setMyTitleAlpha(0);
-                            }else {
-                                Log.d("test","哈哈哈1");
-                                layoutParams.addRule(RelativeLayout.ABOVE,bottomTabbar.getId());
-                                mainMyTileBar.setMyTitleAlpha(1);
+                            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                            if (position != 0) {
+                                mainMyTileBar.setAlpha(1);
+                                params.addRule(RelativeLayout.BELOW, mainMyTileBar.getId());
+                            } else {
+                                mainMyTileBar.setAlpha(0);
                             }
-                            mainMyTileBar.setLayoutParams(layoutParams);
+                            bottomTabbar.setLayoutParams(params);
                             mainMyTileBar.setTitleBarTitle(name);
 
                         }
@@ -246,6 +245,9 @@ public ArrayList<Integer> getColorData() {
                         if (view1 != null)
                             view1.setBackgroundColor(color);
                         CommonUtil.saveColorValue(color);
+                        mainMyTileBar.setBackgroundColor(color);
+                        SharedPreferences six = getSharedPreferences("six", MODE_PRIVATE);
+                        six.edit().putInt("titleColor",color).commit();
                     }
                 })
                 .create()
