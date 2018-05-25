@@ -88,4 +88,6 @@ dependencies {
     //主题
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    //折叠的Textview
+    implementation 'com.eric.android.view:expandable-textview:1.1.7'
 }

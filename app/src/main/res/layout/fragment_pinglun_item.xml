@@ -18,15 +18,18 @@
         >
         <TextView
             android:id="@+id/userid"
+            android:textColor="#ffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xxx"/>
         <TextView
             android:id="@+id/useruptime"
+            android:textColor="#ffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xxx"/>
         <TextView
+            android:textColor="#dad9d9"
             android:id="@+id/userpinglun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

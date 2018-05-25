@@ -2,6 +2,7 @@ package com.example.xiaolitongxue.wieying.view;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 
@@ -66,7 +67,6 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
     ResideLayout maxParent;
     @BindView(R.id.main_drawable_layout)
     RelativeLayout relativeLayout;
-    private float alpha = 0;
 
     private View view1;
    /* @Override
@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
             tvSetting.setOnClickListener(this);
             about.setOnClickListener(this);
             theme.setOnClickListener(this);
-            mainMyTileBar.setAlpha(alpha);
+            mainMyTileBar.setAlpha(0);
             mainMyTileBar.setBackgroundColor(Color.RED);
             //初始化数据
             bottomTabbar.init(getSupportFragmentManager())
@@ -123,6 +123,16 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                     .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                         @Override
                         public void onTabChange(int position, String name) {
+                            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+                            if (position == 0){
+                                Log.d("test","哈哈哈0");
+                                mainMyTileBar.setMyTitleAlpha(0);
+                            }else {
+                                Log.d("test","哈哈哈1");
+                                layoutParams.addRule(RelativeLayout.ABOVE,bottomTabbar.getId());
+                                mainMyTileBar.setMyTitleAlpha(1);
+                            }
+                            mainMyTileBar.setLayoutParams(layoutParams);
                             mainMyTileBar.setTitleBarTitle(name);
 
                         }
