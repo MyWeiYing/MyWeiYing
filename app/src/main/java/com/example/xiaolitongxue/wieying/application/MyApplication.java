@@ -9,6 +9,8 @@ import android.os.Process;
 import android.view.WindowManager;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 
 
 /**
@@ -33,6 +35,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // 将“12345678”替换成您申请的APPID，申请地址：http://open.voicecloud.cn
+        SpeechUtility.createUtility(this, SpeechConstant.APPID +"=5b07ae51");
         resetDensity();//注意不要漏掉
 //        Fresco
         Fresco.initialize(this);

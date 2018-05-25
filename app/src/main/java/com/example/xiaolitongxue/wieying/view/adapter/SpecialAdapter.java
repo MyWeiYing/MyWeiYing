@@ -45,8 +45,11 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
 
 //        Glide.with(context).load(list.get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_img);
         String image_url = list.get(position).getPic().split("\\|")[0];
+       if (image_url != null){
+
         holder.special_img.setImageURI(image_url);
         holder.special_text.setText(list.get(position).getTitle());
+       }
 //        点击图片进行跳转
         holder.special_img.setOnClickListener(new View.OnClickListener() {
             @Override

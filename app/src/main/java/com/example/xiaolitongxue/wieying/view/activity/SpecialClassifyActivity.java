@@ -50,7 +50,6 @@ public class SpecialClassifyActivity extends BaseActivity implements SpecialICla
         });
 //        给定颜色 为红色
         specialActivityMyTileBar.setBackgroundColor(Color.RED);
-        Toast.makeText(this, "" + title, Toast.LENGTH_SHORT).show();
         final String loadURL = intent.getStringExtra("loadURL");
 
         final OkhttpUtils okhttpUtils = new OkhttpUtils();

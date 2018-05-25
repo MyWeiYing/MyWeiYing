@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.SpeciallClassifyBean;
+import com.example.xiaolitongxue.wieying.view.activity.JinxuanxiangqingActivity;
 import com.example.xiaolitongxue.wieying.view.activity.SpecialClassifyActivity;
 import com.example.xiaolitongxue.wieying.view.activity.VideoParticularsActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -45,21 +47,28 @@ public class SpecialClassifyAdapter extends RecyclerView.Adapter<SpecialClassify
     public void onBindViewHolder(MyHolder holder, final int position) {
 
 //        Glide.with(context).load(list.get(0).getChildList().get(position).getPic()).placeholder(R.drawable.ic_launcher).into(holder.special_jump_img);
+
         String image_url = list.get(0).getChildList().get(position).getPic().split("\\|")[0];
+        if (image_url != null) {
+            holder.special_jump_img.setImageURI(image_url);
+            holder.special_jump_text.setText(list.get(0).getChildList().get(position).getTitle());
+            //        点击图片进行跳转
+            holder.special_jump_img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+//                    Intent intent = new Intent(context, VideoParticularsActivity.class);
+                    Intent intent = new Intent(context,JinxuanxiangqingActivity.class);
+//                    intent.putExtra("ShareURL", list.get(position).getChildList().get(position).getShareURL());
+                    intent.putExtra("description", list.get(position).getChildList().get(position).getShareURL());
+                    context.startActivity(intent);
+                }
+            });
+        }else {
+            Toast.makeText(context, "没数据", Toast.LENGTH_SHORT).show();
+        }
 
 
-        holder.special_jump_img.setImageURI(image_url);
-        holder.special_jump_text.setText(list.get(0).getChildList().get(position).getTitle());
-//        点击图片进行跳转
-        holder.special_jump_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, VideoParticularsActivity.class);
-                intent.putExtra("ShareURL",list.get(position).getChildList().get(position).getShareURL());
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override

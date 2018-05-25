@@ -26,6 +26,11 @@ android {
             abiFilters "armeabi", "armeabi-v7a"
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -52,10 +57,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.1.2'
     //     recylerview依赖：
-
-//    implementation 'com.android.support:recyclerview-v7:27.+'
+    //    implementation 'com.android.support:recyclerview-v7:27.+'
     //Recyclerview依赖
-
     implementation 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     //     glide
     implementation 'com.github.bumptech.glide:glide:3.7.0'
@@ -63,14 +66,9 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     implementation 'com.facebook.fresco:fresco:0.12.0'
     implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
-
     api 'link.fls:swipestack:0.3.0'
-
-
     implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
-
     api 'link.fls:swipestack:0.3.0'
-
     implementation 'com.facebook.fresco:animated-base-support:0.12.0'
     // 在 API < 14 上的机器支持 WebP 时，需要添加
     implementation 'com.facebook.fresco:animated-gif:0.12.0'
@@ -80,14 +78,14 @@ dependencies {
     implementation 'com.facebook.fresco:webpsupport:0.12.0'
     // 仅支持 WebP 静态图，需要添加
     //    implementation 'com.facebook.fresco:webpsupport:0.12.0'
-//    implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
+    //    implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
     implementation 'com.makeramen:roundedimageview:2.2.1'
-
     implementation 'com.github.open-android:IjkPlayer:1.0.0'
-
     //主题
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
     //折叠的Textview
     implementation 'com.eric.android.view:expandable-textview:1.1.7'
+    implementation files('libs/Sunflower.jar')
+    implementation files('libs/Msc.jar')
 }
