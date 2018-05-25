@@ -71,6 +71,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(intent);
+                finish();
             }
         };
         timer.schedule(timerTask, 1000 * 3);
