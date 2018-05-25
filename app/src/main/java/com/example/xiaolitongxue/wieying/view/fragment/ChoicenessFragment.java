@@ -111,13 +111,10 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
                titlebar.setBackgroundColor(titleColor);
                if (t == 0) {titlebar.setAlpha(0);}
 
-               if (t > 0 && t < 300){
+               if (t > 0 && t <= 300){
                    float i = (float) t / (float) 300;
                    Log.d(TAG, "i:" + i);
                    titlebar.setAlpha(i);
-               }
-               if (t > 300){
-                   titlebar.setAlpha(1);
                }
 
            }
