@@ -1,6 +1,7 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.widget.RelativeLayout;
 
@@ -31,6 +32,8 @@ import com.example.xiaolitongxue.wieying.view.fragment.SpecialFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.jaeger.library.StatusBarUtil;
 import com.makeramen.roundedimageview.RoundedImageView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -106,14 +109,10 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                     .setChangeColor(Color.RED, Color.DKGRAY)
                     .setTabPadding(40, 0, 0)
                     .setChangeColor(Color.RED, Color.DKGRAY)
-
-
                     .setTabPadding(40, 0, 10)
                     .setChangeColor(Color.RED, Color.DKGRAY)
-
                     .setTabPadding(40, 0, 0)
                     .setChangeColor(Color.RED, Color.DKGRAY)
-
                     .setTabBarBackgroundResource(R.drawable.bottom_bg)
                     .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
                     .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
@@ -135,6 +134,7 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
                         }
                     });
+
 //            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
 
@@ -244,6 +244,9 @@ public ArrayList<Integer> getColorData() {
                         if (view1 != null)
                             view1.setBackgroundColor(color);
                         CommonUtil.saveColorValue(color);
+                        mainMyTileBar.setBackgroundColor(color);
+                        SharedPreferences six = getSharedPreferences("six", MODE_PRIVATE);
+                        six.edit().putInt("titleColor",color).commit();
                     }
                 })
                 .create()
