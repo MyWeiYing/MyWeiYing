@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -64,18 +65,25 @@ public class JinxuanxiangqingActivity extends BaseActivity {
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
-        mainMyTileBar.setTitleBarTitle(title);
+        if(title!=null){
+            mainMyTileBar.setTitleBarTitle(title);
+        }
         String videourl = intent.getStringExtra("videourl");
         description = intent.getStringExtra("description");
         String pic = intent.getStringExtra("pic");
-        Glide.with(this).load(pic).into(playerView.mPlayerThumb);
+        if (pic!=null){
+            Glide.with(this).load(pic).into(playerView.mPlayerThumb);
+        }
         Toast.makeText(this, videourl + "", Toast.LENGTH_LONG).show();
         playerView = findViewById(R.id.player_view);
-        playerView.init()
-                .setVideoPath(videourl)
-                .setMediaQuality(IjkPlayerView.MEDIA_QUALITY_HIGH)
-                .enableDanmaku()
-                .start();
+        Log.d("test",videourl + "dasf");
+        if (videourl!=null && !"".equals(videourl)) {
+            playerView.init()
+                    .setVideoPath(videourl)
+                    .setMediaQuality(IjkPlayerView.MEDIA_QUALITY_HIGH)
+                    .enableDanmaku()
+                    .start();
+        }
 
         Tablay();
 
@@ -89,7 +97,9 @@ public class JinxuanxiangqingActivity extends BaseActivity {
             Jingxuanxiangqing_tablayout_fragmentvp fragmentvp = new Jingxuanxiangqing_tablayout_fragmentvp();
             Bundle b = new Bundle();
             b.putString("data", str[i]);
-            b.putString("description",description);
+            if(description!=null){
+                b.putString("description",description);
+            }
 //            b.putString("dataurl",urlS[i]);
             fragmentvp.setArguments(b);
             fragmentvps.add(fragmentvp);
@@ -135,7 +145,9 @@ public class JinxuanxiangqingActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        playerView.onPause();
+        if (playerView != null && playerView.isPlaying()){
+            playerView.onPause();
+        }
     }
 
     @Override

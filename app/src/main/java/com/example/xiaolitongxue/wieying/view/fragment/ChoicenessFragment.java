@@ -1,5 +1,8 @@
 package com.example.xiaolitongxue.wieying.view.fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,11 +21,16 @@ import com.example.xiaolitongxue.wieying.R;
 import com.example.xiaolitongxue.wieying.model.bean.ChoicenessBean;
 import com.example.xiaolitongxue.wieying.model.myBanner.MyBanner;
 import com.example.xiaolitongxue.wieying.presenter.ChoicenessPresenter;
+import com.example.xiaolitongxue.wieying.view.activity.SosuoActivity;
 import com.example.xiaolitongxue.wieying.view.adapter.JIngxuanAdapter;
 import com.example.xiaolitongxue.wieying.view.custom.MyTitleBar;
 import com.example.xiaolitongxue.wieying.view.custom.ObserveScrollView;
 import com.example.xiaolitongxue.wieying.view.interfaces.ChoicenessIView;
 import com.youth.banner.Banner;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +41,7 @@ import java.util.List;
  */
 
 public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implements ChoicenessIView {
+
     private View layout;
     private View view;
     private ChoicenessPresenter presenter;
@@ -50,18 +59,17 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     private ObserveScrollView mScrollview;
     private JIngxuanAdapter jIngxuanAdapter;
     private MyTitleBar titlebar;
+    private SharedPreferences six;
 
     //创建并返回数据
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         view = inflater.inflate(R.layout.fragment_choiceness_layout, container, false);
         return view;
     }
 
-
-
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
         mbanner = view.findViewById(R.id.mbanner);
         mlistview = view.findViewById(R.id.mlistview);
         relatadrawcolor = view.findViewById(R.id.Relatadrawcolor);
@@ -74,6 +82,9 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     void initData(@Nullable Bundle savedInstanceState) {
+
+        Log.d(TAG, "dsfadfsafdsfdasfas");
+
         relatadrawcolor.getBackground().setAlpha(50);
 //        加载轮播图
         mbanner.setImageLoader(new MyBanner());
@@ -89,7 +100,7 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
         titlebar.bringToFront();
 // ;
         presenter.loadDataFromServer();
-//        上滑监听事件
+//        上滑监听事件=== -. - 暂时没用
        mScrollview.setScrollListener(new ObserveScrollView.ScrollListener() {
 
            @Override
@@ -98,7 +109,9 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
                if (t>0){
                    Log.d("上滑了",""+t);
                }
-
+               six = getContext().getSharedPreferences("six", Context.MODE_PRIVATE);
+               int titleColor = six.getInt("titleColor", Color.RED);
+               titlebar.setBackgroundColor(titleColor);
                if (t == 0) {titlebar.setAlpha(0);}
 
                if (t > 0 && t <= 300){
@@ -109,9 +122,17 @@ public class ChoicenessFragment extends BaseFragment<ChoicenessPresenter> implem
 
            }
        });
-
+        //跳转搜索页面
+        relatadrawcolor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SosuoActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
 
     //创建Presenter实例
     @Override

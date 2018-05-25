@@ -80,7 +80,7 @@ dependencies {
     implementation 'com.facebook.fresco:webpsupport:0.12.0'
     // 仅支持 WebP 静态图，需要添加
     //    implementation 'com.facebook.fresco:webpsupport:0.12.0'
-    implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
+//    implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
     implementation 'com.makeramen:roundedimageview:2.2.1'
 
     implementation 'com.github.open-android:IjkPlayer:1.0.0'
@@ -88,4 +88,6 @@ dependencies {
     //主题
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    //折叠的Textview
+    implementation 'com.eric.android.view:expandable-textview:1.1.7'
 }

@@ -37,7 +37,7 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     private List<FindBean.RetBean.ListBean> list = new ArrayList<>();
 
     @Override
-    View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+    protected View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_find_layout, container, false);
         return view;
     }
@@ -81,7 +81,7 @@ public class FindFragment extends BaseFragment<FindPresenter> implements FindIVi
     }
 
     @Override
-    void findViewByIdView(View view) {
+    protected void findViewByIdView(View view) {
         btn = view.findViewById(R.id.find_btn);
         stack = view.findViewById(R.id.find_swip_stack);
     }

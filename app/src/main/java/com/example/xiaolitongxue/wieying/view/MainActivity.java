@@ -1,6 +1,7 @@
 package com.example.xiaolitongxue.wieying.view;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.widget.RelativeLayout;
 
@@ -86,50 +87,55 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
         } else {
             NetTypeUtils.openNetSettingDg(MainActivity.this);
         }
-        avatar.setOnClickListener(this);
-        desc.setOnClickListener(this);
-        tvCollect.setOnClickListener(this);
-        tvMydown.setOnClickListener(this);
-        tvFuli.setOnClickListener(this);
-        tvShare.setOnClickListener(this);
-        tvFeedback.setOnClickListener(this);
-        tvSetting.setOnClickListener(this);
-        about.setOnClickListener(this);
-        theme.setOnClickListener(this);
-        mainMyTileBar.setAlpha(alpha);
-        mainMyTileBar.setBackgroundColor(Color.RED);
-        //初始化数据
-        bottomTabbar.init(getSupportFragmentManager())
-                .setImgSize(70, 70)
-                .setFontSize(14)
-                .setTabPadding(40, 0, 10)
-                .setChangeColor(Color.RED, Color.DKGRAY)
-                .setTabPadding(40, 0, 0)
-                .setChangeColor(Color.RED, Color.DKGRAY)
+            avatar.setOnClickListener(this);
+            desc.setOnClickListener(this);
+            tvCollect.setOnClickListener(this);
+            tvMydown.setOnClickListener(this);
+            tvFuli.setOnClickListener(this);
+            tvShare.setOnClickListener(this);
+            tvFeedback.setOnClickListener(this);
+            tvSetting.setOnClickListener(this);
+            about.setOnClickListener(this);
+            theme.setOnClickListener(this);
+            mainMyTileBar.setAlpha(0);
+            mainMyTileBar.setBackgroundColor(Color.RED);
+            //初始化数据
+            bottomTabbar.init(getSupportFragmentManager())
+                    .setImgSize(70, 70)
+                    .setFontSize(14)
+                    .setTabPadding(40, 0, 10)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
+                    .setTabPadding(40, 0, 0)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
 
 
-                .setTabPadding(40, 0, 10)
-                .setChangeColor(Color.RED, Color.DKGRAY)
+                    .setTabPadding(40, 0, 10)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
 
-                .setTabPadding(40, 0, 0)
-                .setChangeColor(Color.RED, Color.DKGRAY)
+                    .setTabPadding(40, 0, 0)
+                    .setChangeColor(Color.RED, Color.DKGRAY)
 
-                .setTabBarBackgroundResource(R.drawable.bottom_bg)
-                .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
-                .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
-                .addTabItem("发现", R.drawable.fancy_select, R.drawable.fancy, FindFragment.class)
-                .addTabItem("我的", R.drawable.my_select, R.drawable.my, MyFragment.class)
+                    .setTabBarBackgroundResource(R.drawable.bottom_bg)
+                    .addTabItem("精选", R.drawable.found_select, R.drawable.found, ChoicenessFragment.class)
+                    .addTabItem("专题", R.drawable.special_select, R.drawable.special, SpecialFragment.class)
+                    .addTabItem("发现", R.drawable.fancy_select, R.drawable.fancy, FindFragment.class)
+                    .addTabItem("我的", R.drawable.my_select, R.drawable.my, MyFragment.class)
 //                .setTabPadding(20,6,10)
-                .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
-                    @Override
-                    public void onTabChange(int position, String name) {
-                        mainMyTileBar.setTitleBarTitle(name);
-                        if (position == 0) {
-                            mainMyTileBar.setMyTitleAlpha(0);
+                    .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
+                        @Override
+                        public void onTabChange(int position, String name) {
+                            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                            if (position != 0) {
+                                mainMyTileBar.setAlpha(1);
+                                params.addRule(RelativeLayout.BELOW, mainMyTileBar.getId());
+                            } else {
+                                mainMyTileBar.setAlpha(0);
+                            }
+                            bottomTabbar.setLayoutParams(params);
+                            mainMyTileBar.setTitleBarTitle(name);
 
                         }
-                    }
-                });
+                    });
 //            mainMyTileBar.setBackgroundColor(Color.YELLOW);
 
 
@@ -184,29 +190,28 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
 
         }
     }
+//主题
+public ArrayList<Integer> getColorData() {
+    ArrayList<Integer> integers = new ArrayList<>();
+    integers.add(R.color.colorBluePrimaryDark);
+    integers.add(R.color.colorAccent);
+    integers.add(R.color.colorTealPrimary);
+    integers.add(R.color.colorDeepOrangePrimary);
+    integers.add(R.color.colorRedPrimaryCenter);
+    integers.add(R.color.colorRedPrimary);
+    integers.add(R.color.colorPrimaryDark);
+    integers.add(R.color.colorPrimary);
+    integers.add(R.color.colorLimePrimaryCenter);
+    integers.add(R.color.colorOrangePrimary);
+    integers.add(R.color.colorSecondText);
+    integers.add(R.color.colorLimePrimaryDark);
+    integers.add(R.color.colorDeepPurplePrimaryCenter);
+    integers.add(R.color.colorHint);
+    integers.add(R.color.colorDeepOrangePrimaryCenter);
+    integers.add(R.color.colorSecondText);
 
-    //主题
-    public ArrayList<Integer> getColorData() {
-        ArrayList<Integer> integers = new ArrayList<>();
-        integers.add(R.color.colorBluePrimaryDark);
-        integers.add(R.color.colorAccent);
-        integers.add(R.color.colorTealPrimary);
-        integers.add(R.color.colorDeepOrangePrimary);
-        integers.add(R.color.colorRedPrimaryCenter);
-        integers.add(R.color.colorRedPrimary);
-        integers.add(R.color.colorPrimaryDark);
-        integers.add(R.color.colorPrimary);
-        integers.add(R.color.colorLimePrimaryCenter);
-        integers.add(R.color.colorOrangePrimary);
-        integers.add(R.color.colorSecondText);
-        integers.add(R.color.colorLimePrimaryDark);
-        integers.add(R.color.colorDeepPurplePrimaryCenter);
-        integers.add(R.color.colorHint);
-        integers.add(R.color.colorDeepOrangePrimaryCenter);
-        integers.add(R.color.colorSecondText);
-
-        return integers;
-    }
+    return integers;
+}
 
     private int clickPosition = 0;
 
@@ -240,6 +245,9 @@ public class MainActivity extends BaseActivity implements ObserveScrollView.Scro
                         if (view1 != null)
                             view1.setBackgroundColor(color);
                         CommonUtil.saveColorValue(color);
+                        mainMyTileBar.setBackgroundColor(color);
+                        SharedPreferences six = getSharedPreferences("six", MODE_PRIVATE);
+                        six.edit().putInt("titleColor",color).commit();
                     }
                 })
                 .create()

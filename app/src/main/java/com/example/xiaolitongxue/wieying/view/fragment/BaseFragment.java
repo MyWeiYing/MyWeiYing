@@ -44,9 +44,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         initData(savedInstanceState);
     }
 
-    abstract View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container);
+    protected abstract View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container);
     abstract void initData( @Nullable Bundle savedInstanceState);
-    abstract void findViewByIdView(View view);
+    protected abstract void findViewByIdView(View view);
     abstract P newPresenter();
     public P getPresenter(){
         return p;

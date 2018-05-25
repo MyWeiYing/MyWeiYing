@@ -7,7 +7,8 @@ package com.example.xiaolitongxue.wieying.model.http;
 public class HttpConfig {
     //基本接口
     public static String url = "http://api.svipmovie.com/";
-
+//    评论
+//    http://api.svipmovie.com/front/Commentary/getCommentList.do?mediaId=CMCC_00000000000000001_621653189
 //    首页接口
 //    http://api.svipmovie.com/front/homePageApi/homePage.do
 //    专题

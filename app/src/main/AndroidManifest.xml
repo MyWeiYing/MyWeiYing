@@ -17,9 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.MainActivity">
-
-        </activity>
+        <activity android:name=".view.MainActivity"></activity>
         <activity android:name=".view.activity.SpecialClassifyActivity" />
         <activity
             android:name=".view.activity.JinxuanxiangqingActivity"
@@ -33,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.SosuoActivity"></activity>
     </application>
 
 </manifest>
