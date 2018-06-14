@@ -74,7 +74,6 @@ public class SwipStackAdapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
-
         holder.title.setText(list.get(position).getTitle());
         holder.content.setText("\u3000\u3000" + list.get(position).getDescription());
         Glide.with(context).load(Uri.parse(list.get(position).getPic())).placeholder(R.drawable.ic_launcher).into(holder.img);
